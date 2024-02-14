@@ -11,13 +11,13 @@ export default function Navbar() {
           <nav className="flex items-center justify-between">
             <div className="sclIcon flex items-center mx-auto lg:mx-0">
               <div className="flex items-center cursor-pointer">
-                <PhoneCall size={20} />
-                <a className="text-md ml-2" href="tel:+8801646418365">
+                <PhoneCall size={20} color="#fff" />
+                <a className="text-md ml-2 text-white" href="tel:+8801646418365">
                   +8801646418365
                 </a>
               </div>
-              <div className="flex items-center ml-5">
-                <Mail size={20} />
+              <div className="flex items-center ml-5 text-white">
+                <Mail size={20} color="#fff" />
                 <a
                   className="text-md ml-2"
                   href="mailto:ahshan.habib026@gmail.com"
@@ -27,14 +27,14 @@ export default function Navbar() {
               </div>
             </div>
             <div className="info hidden lg:block">
-              <NavLink className="text-md " to="/">
+              <NavLink className="text-md text-white" to="/">
                 Terms & Condition
               </NavLink>
-              <NavLink className="text-md mx-4" to="/">
+              <NavLink className="text-md mx-4 text-white" to="/">
                 Privacy Policy
               </NavLink>
               <NavLink
-                className="text-md p-3 bg-[#D53F34] rounded-md focus:bg-[#eb463b]"
+                className="text-md text-white p-3 bg-[#D53F34] rounded-md focus:bg-[#eb463b]"
                 to="/"
               >
                 Donate Now
@@ -49,7 +49,7 @@ export default function Navbar() {
             <div className="flex items-center justify-center flex-wrap lg:justify-between">
               <Link to="/" className="flex items-center ">
                 <img className=" size-10" src={logo} alt="" />
-                <span className="ml-2 text-xl font-semibold text-gray-500">
+                <span className="ml-2 text-xl font-semibold ">
                   Winter Clothes Donation
                 </span>
               </Link>

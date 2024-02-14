@@ -1,11 +1,11 @@
-import Container from "../utils/Container";
+import Container from "../../utils/Container";
 import { Swiper as SwiperComponent } from "swiper/react";
 import "swiper/css";
 import { SwiperSlide } from "swiper/react";
-import BannerImg from "../assets/images/Banner.jpg";
-import BannerImgOne from "../assets/images/Banner-1.jpeg";
-import BannerImgTwo from "../assets/images/Banner-2.jpg";
-import BackgroundImage from "../utils/BackgroundImage";
+import BannerImg from "../../assets/images/Banner.jpg";
+import BannerImgOne from "../../assets/images/Banner-1.jpeg";
+import BannerImgTwo from "../../assets/images/Banner-2.jpg";
+import BackgroundImage from "../../utils/BackgroundImage";
 import { Link } from "react-router-dom";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
