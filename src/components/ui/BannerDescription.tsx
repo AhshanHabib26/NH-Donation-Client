@@ -43,7 +43,7 @@ export default function BannerDescription() {
           {clothesData.map((cloth) => (
             <div
               key={cloth.id}
-              className=" shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant"
+              className=" shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant hover:shadow-xl"
             >
               <img className=" size-20 rounded-lg" src={cloth.image} alt="" />
               <div className="text-center mt-5">
