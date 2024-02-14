@@ -7,6 +7,8 @@ import BannerImgOne from "../assets/images/Banner-1.jpeg";
 import BannerImgTwo from "../assets/images/Banner-2.jpg";
 import BackgroundImage from "../utils/BackgroundImage";
 import { Link } from "react-router-dom";
+import { Autoplay, EffectFade } from "swiper/modules";
+import "swiper/css/effect-fade";
 
 const BannerData = [
   {
@@ -31,7 +33,15 @@ export default function Banner() {
     <BackgroundImage>
       <Container>
         <div>
-          <SwiperComponent className="mySwiper">
+          <SwiperComponent
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay, EffectFade]}
+          >
             {BannerData.map((item) => (
               <SwiperSlide key={item.id}>
                 <div className="flex items-center justify-between flex-col lg:flex-row">
