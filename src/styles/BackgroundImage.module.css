@@ -1,0 +1,14 @@
+.bgImage {
+  background-image: url(../assets/images/BgImage.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.bgImage::after{
+    position: absolute;
+    content: url(../assets/images/shape.png);
+    left: 55%;
+    top: 70%;
+    transform: translate(-55%, -70%);
+}
