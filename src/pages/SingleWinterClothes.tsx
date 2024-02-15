@@ -36,30 +36,30 @@ export default function SingleWinterClothes() {
           </h1>
         </div>
       </BackgroundImage>
-      <div className="max-w-5xl mx-auto border border-[#bfbfc0] border-dotted my-12 rounded-lg p-3">
+      <div className="max-w-5xl mx-5 lg:mx-auto border border-[#bfbfc0] border-dotted my-12 rounded-lg p-3">
         <div className="flex items-center justify-center">
           <img className="w-[300px]" src={data.image} alt="" />
         </div>
         <div className="my-8">
-          <div className="flex items-center">
+          <div className="flex items-center flex-wrap">
             <h1 className="text-lg font-medium">
               Product Title:
             </h1>
             <span className="text-md ml-2">{data.title}</span>
           </div>
-          <div className="flex items-center my-1">
+          <div className="flex items-center my-1 flex-wrap">
             <h1 className="text-lg  font-medium">
               Product Category:
             </h1>
             <span className="text-md ml-2">{data.category}</span>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center flex-wrap">
             <h1 className="text-lg  font-medium">
               Available Size:{" "}
             </h1>
             {data.size.map((item, index) => (
               <p
-                className={`border ml-2 px-2 py-1 rounded-md cursor-pointer text-md ${
+                className={`border ml-2 px-2 py-1 rounded-md cursor-pointer text-md  ${
                   sizeBGColors[index % sizeBGColors.length]
                 }`}
                 key={index}
@@ -68,11 +68,11 @@ export default function SingleWinterClothes() {
               </p>
             ))}
           </div>
-          <div className="my-1">
+          <div className="my-2 lg:my-1">
             <h1 className="text-lg  font-medium">Product Description:</h1>
             {data.description.map((item, index) => (
-              <div className="flex items-center" key={index}>
-                <CheckSquare size={20} color="#f86156"  />
+              <div className="flex items-start lg:items-center" key={index}>
+                <CheckSquare className=" flex shrink-0" size={18} color="#f86156"  />
                 <p className="text-md ml-2">{item}</p>
               </div>
             ))}
