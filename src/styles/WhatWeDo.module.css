@@ -1,0 +1,46 @@
+.WWDMain .WWDImgContainer {
+  position: relative;
+}
+.WWDMain:hover {
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+}
+.WWDMain:hover .WWDImg {
+  transform: rotateY(360deg);
+  transition: all 0.5s ease-out;
+}
+.WWDMain:hover .WWDTitle {
+  color: #d53f34;
+  transition: 0.4s ease-in-out;
+}
+
+.WWDImg {
+  position: relative;
+}
+
+.WWDImgContainer::before {
+  position: absolute;
+  content: "";
+  border: 1px solid #fddbd8;
+  top: 50%;
+  right: -38%;
+  transform: translate(-50%, -50%);
+  height: 40px;
+  border-radius: 50px;
+  transition: 0.4s ease-in-out;
+}
+.WWDImgContainer::after {
+  position: absolute;
+  content: "";
+  border: 3px solid #d53f34;
+  top: 50%;
+  right: -45%;
+  transform: translate(-50%, -50%);
+  height: 25px;
+  border-radius: 50px;
+  transition: 0.4s ease-in-out;
+}
+
+.WWDMain:hover .WWDImgContainer::after {
+  height: 40px;
+}
