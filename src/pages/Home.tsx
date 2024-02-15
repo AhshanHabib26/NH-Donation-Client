@@ -1,5 +1,6 @@
 import Banner from "../components/ui/Banner";
 import BannerDescription from "../components/ui/BannerDescription";
+import Gallary from "../components/ui/Gallary";
 import WinterClothes from "../components/ui/WinterClothes";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Banner />
       <BannerDescription />
       <WinterClothes />
+      <Gallary />
     </div>
   );
 }
