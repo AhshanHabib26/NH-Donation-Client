@@ -29,7 +29,7 @@ const clothesData = [
 
 export default function BannerDescription() {
   return (
-    <div className="my-12">
+    <div className="my-28">
       <Container>
         <div className="text-center mb-14">
           <p className="text-lg font-light text-[#D53F34]">

@@ -1,0 +1,17 @@
+.mainCard:hover{
+    background-color: #191F2D;
+    transition: 0.8s ease-in-out;
+    cursor: pointer;
+}
+.mainCard:hover .cardImage{
+    display: none;
+}
+.mainCard:hover .cardTitle{
+    color: #fff;
+}
+.mainCard:hover .cardDescription{
+    display: block;
+}
+.mainCard:hover .cardBtn{
+    background-color: #D53F34;
+}
