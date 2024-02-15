@@ -54,7 +54,7 @@ const WinterCard: React.FC<TWinterCardProps> = ({ winter }) => {
         <div className="mt-6 flex items-end justify-end ">
           <Link
             className={`${Styles.cardBtn} bg-[#191F2D] px-5 py-3 rounded-lg text-white cursor-pointer`}
-            to={`/winter-cloths/${id}`}
+            to={`/winter-clothes/${id}`}
           >
             View Details
           </Link>

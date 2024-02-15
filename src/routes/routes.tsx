@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import WinterClothes from "../pages/WinterClothes";
+import SingleWinterClothes from "../pages/SingleWinterClothes";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
       {
         path: "/winter-clothes",
         element: <WinterClothes />,
+      },
+      {
+        path: "/winter-clothes/:id",
+        element: <SingleWinterClothes />,
       },
       {
         path: "/sign-in",
