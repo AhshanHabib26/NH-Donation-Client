@@ -4,6 +4,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  z-index: 999999;
 }
 .bgImage::after{
     position: absolute;
@@ -11,4 +12,5 @@
     left: 55%;
     top: 70%;
     transform: translate(-55%, -70%);
+    z-index: -99999;
 }

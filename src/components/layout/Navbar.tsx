@@ -54,7 +54,7 @@ export default function Navbar() {
                 </span>
               </Link>
               <div className="pt-4 lg:pt-0">
-                <NavLink className="text-md" to="/all-winter-clothes">
+                <NavLink className="text-md" to="/winter-clothes">
                   All Winter Clothes
                 </NavLink>
                 <NavLink className="text-md mx-4" to="/dashboard">
