@@ -40,6 +40,15 @@ const gallaryData = [
   },
 ];
 
+function getRandomColor() {
+  const letters = "0123456789ABCDEF";
+  let color = "#";
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
 export default function Gallary() {
   return (
     <div>
@@ -59,7 +68,12 @@ export default function Gallary() {
                   src={data.image}
                   alt=""
                 />
-                <p className={Styles.galleryInfo}>{data.title}</p>
+                <p
+                  className={Styles.galleryInfo}
+                  style={{ backgroundColor: getRandomColor() }}
+                >
+                  {data.title}
+                </p>
               </div>
             ))}
           </div>
