@@ -1,0 +1,16 @@
+.infoIcon {
+  position: absolute;
+  content: "";
+  top: 5px;
+  right: 5px;
+}
+
+.volunterMain:hover .volunterImg {
+  opacity: 1;
+  transition: 0.5s ease-in-out;
+  transform: scale(1.0256);
+}
+.volunterMain:hover .volunterInfo {
+  border-radius: 5px;
+  transition: 0.5s ease-in-out;
+}
