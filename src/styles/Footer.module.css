@@ -1,0 +1,14 @@
+.FooterTitle {
+  position: relative;
+}
+.FooterTitle::before {
+  position: absolute;
+  content: "";
+  border: 3px solid #D53F34;
+  width: 70px;
+  left: 0;
+  bottom: -6px;
+  border-radius: 100%;
+
+  
+}

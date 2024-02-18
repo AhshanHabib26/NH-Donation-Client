@@ -2,6 +2,7 @@ import Banner from "../components/ui/Banner";
 import BannerDescription from "../components/ui/BannerDescription";
 import Blogs from "../components/ui/Blogs";
 import Events from "../components/ui/Events";
+import Footer from "../components/ui/Footer";
 import Gallary from "../components/ui/Gallary";
 import Testimonial from "../components/ui/Testimonial";
 import Volunteers from "../components/ui/Volunteers";
@@ -20,6 +21,7 @@ export default function Home() {
       <Volunteers />
       <Events />
       <Blogs />
+      <Footer />
     </div>
   );
 }
