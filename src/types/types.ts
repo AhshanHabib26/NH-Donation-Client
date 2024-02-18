@@ -16,3 +16,4 @@ type TWinter = {
 export type TWinterCardProps = {
   winter: TWinter;
 };
+

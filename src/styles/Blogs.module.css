@@ -1,0 +1,40 @@
+.blogContainer {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.blogContainer:hover {
+  box-shadow: 0 5px 25px #f8a6a0;
+  transition: 0.5s ease-in-out;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.blogContainer:hover .blogImage {
+  transform: scale(1.0358);
+  transition: 0.5s ease-in-out;
+  opacity: 0.6;
+}
+.blogContainer:hover .blogTitle {
+  color: #d53f34;
+  transition: 0.5s ease-in-out;
+}
+
+.blogContainer:hover .blogDescripton {
+  color: #191f2d;
+}
+
+.blogCommentIcon {
+  animation: fade-in-out 2s infinite;
+}
+
+@keyframes fade-in-out {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
