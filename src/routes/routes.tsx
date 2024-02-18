@@ -5,6 +5,10 @@ import Signin from "../pages/Signin";
 import Signup from "../pages/Signup";
 import WinterClothes from "../pages/WinterClothes";
 import SingleWinterClothes from "../pages/SingleWinterClothes";
+import DashboardLayout from "../components/layout/DashboardLayout";
+import Dashboard from "../components/ui/dashboard/Dashboard";
+import AllWinterClothes from "../components/ui/dashboard/AllWinterClothes";
+import CreateWinterClothes from "../components/ui/dashboard/CreateWinterClothes";
 
 export const router = createBrowserRouter([
   {
@@ -30,6 +34,24 @@ export const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <Signup />,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <DashboardLayout />,
+    children: [
+      {
+        index: true,
+        element: <Dashboard />,
+      },
+      {
+        path: "winter-clothes",
+        element: <AllWinterClothes />,
+      },
+      {
+        path: "create-winter-clothes",
+        element: <CreateWinterClothes />,
       },
     ],
   },
