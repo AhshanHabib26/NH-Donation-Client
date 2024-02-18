@@ -17,3 +17,12 @@ export type TWinterCardProps = {
   winter: TWinter;
 };
 
+export type TSignInInputs = {
+  email: string;
+  password: string;
+};
+export type TSignUpInputs = {
+  name: string;
+  email: string;
+  password: string;
+};
