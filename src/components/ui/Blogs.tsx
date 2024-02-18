@@ -39,7 +39,7 @@ export default function Blogs() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {blogData.map((blog) => (
-            <div key={blog.id} className={Styles.blogContainer}>
+            <div key={blog.id} className={`${Styles.blogContainer} border`}>
               <img
                 className={`${Styles.blogImage} w-full h-[250px] object-cover opacity-85`}
                 src={blog.image}
