@@ -1,5 +1,6 @@
 import Banner from "../components/ui/Banner";
 import BannerDescription from "../components/ui/BannerDescription";
+import Events from "../components/ui/Events";
 import Gallary from "../components/ui/Gallary";
 import Testimonial from "../components/ui/Testimonial";
 import Volunteers from "../components/ui/Volunteers";
@@ -16,6 +17,7 @@ export default function Home() {
       <WhatWeDo />
       <Testimonial />
       <Volunteers />
+      <Events />
     </div>
   );
 }
