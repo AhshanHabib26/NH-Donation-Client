@@ -15,7 +15,7 @@ const WinterCard: React.FC<TWinterCardProps> = ({ winter }) => {
     <div className={`${Styles.mainCard} border rounded-xl`}>
       <div className=" flex items-center justify-center p-2">
         <img
-          className={`${Styles.cardImage} w-[130px] h-auto`}
+          className={`${Styles.cardImage} h-[180px] object-cover`}
           src={image}
           alt=""
         />
@@ -33,9 +33,7 @@ const WinterCard: React.FC<TWinterCardProps> = ({ winter }) => {
           <h1 className="text-lg text-[#D53F34] font-light">
             Product Description:
           </h1>
-          {description.slice(0, 2).map((des) => (
-            <li className="text-[15px] text-white">{des}</li>
-          ))}
+          <p className="text-white">{`${description.slice(0, 150)}...`}</p>
         </div>
         <div className="flex items-end justify-end">
           <div className="flex items-center">

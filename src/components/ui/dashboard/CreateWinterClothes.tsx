@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useCreateClothesMutation } from "../../../redux/features/clothe/clotheApi";
+import toast from "react-hot-toast";
 
 export default function CreateWinterClothes() {
+  const [createClothes] = useCreateClothesMutation();
+
   const [clothes, setClothes] = useState({
     title: "",
     image: "",
@@ -28,15 +32,20 @@ export default function CreateWinterClothes() {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    console.log(clothes);
-    setClothes({
-      title: "",
-      image: "",
-      category: "",
-      size: ["", "", "", ""],
-      description: "",
-    });
+    try {
+      e.preventDefault();
+      const res = await createClothes(clothes).unwrap();
+      toast.success(res.message, { id: "clothId" });
+      setClothes({
+        title: "",
+        image: "",
+        category: "",
+        size: ["", "", "", ""],
+        description: "",
+      });
+    } catch (error) {
+      toast.error("An error occurred. Please try again.", { id: "clothId" });
+    }
   };
 
   return (
@@ -122,7 +131,7 @@ export default function CreateWinterClothes() {
           <textarea
             value={clothes.description}
             onChange={(e) => handleChange("description", e.target.value)}
-            rows={8}
+            rows={4}
             className="w-full  bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
             required
             name="description"
