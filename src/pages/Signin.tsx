@@ -1,14 +1,40 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TSignInInputs } from "../types/types";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useLoginUserMutation } from "../redux/features/auth/authApi";
+import toast from "react-hot-toast";
+import { useAppDispatch } from "../redux/hooks";
+import { setUser } from "../redux/features/auth/authSlice";
+import { verifyToken } from "../utils/VerifyToken";
 
 export default function Signin() {
+  const navigate = useNavigate();
+  const [loginUser] = useLoginUserMutation();
+  const dispatch = useAppDispatch();
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TSignInInputs>();
-  const onSubmit: SubmitHandler<TSignInInputs> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<TSignInInputs> = async (data) => {
+    try {
+      const res = await loginUser(data).unwrap();
+      const user = verifyToken(res.token);
+      dispatch(setUser({ user: user, token: res.token }));
+      toast.success(res.message, { id: "authId" });
+      reset();
+      navigate("/dashboard");
+    } catch (error: any) {
+      if (error?.data?.message) {
+        toast.error(error.data.message, { id: "authId" });
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+    }
+  };
 
   return (
     <div>
