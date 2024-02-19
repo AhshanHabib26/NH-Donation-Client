@@ -1,14 +1,35 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { TSignUpInputs } from "../types/types";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useRegisterUserMutation } from "../redux/features/auth/authApi";
+import toast from "react-hot-toast";
 
 export default function Signup() {
+  const [registerUser] = useRegisterUserMutation();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TSignUpInputs>();
-  const onSubmit: SubmitHandler<TSignUpInputs> = (data) => console.log(data);
+
+  const onSubmit: SubmitHandler<TSignUpInputs> = async (data) => {
+    try {
+      const res = await registerUser(data).unwrap();
+      console.log(res);
+      toast.success(res.message, { id: "authId" });
+      reset();
+      navigate("/sign-in");
+    } catch (error: any) {
+      if (error?.data?.message) {
+        toast.error(error.data.message, { id: "authId" });
+      } else {
+        toast.error("An error occurred. Please try again.");
+      }
+    }
+  };
 
   return (
     <div>
