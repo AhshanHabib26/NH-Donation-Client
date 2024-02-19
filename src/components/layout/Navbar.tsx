@@ -2,8 +2,16 @@ import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/icons/logo.png";
 import { PhoneCall, Mail } from "lucide-react";
 import Container from "../../utils/Container";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import {
+  logoutUser,
+  useCureentToken,
+} from "../../redux/features/auth/authSlice";
 
 export default function Navbar() {
+  const token = useAppSelector(useCureentToken);
+  const dispatch = useAppDispatch();
+
   return (
     <div className="">
       <div className="topNavbar bg-[#191F2D] text-white py-4">
@@ -12,7 +20,10 @@ export default function Navbar() {
             <div className="sclIcon flex items-center mx-auto lg:mx-0">
               <div className="flex items-center cursor-pointer">
                 <PhoneCall size={20} color="#fff" />
-                <a className="text-md ml-2 text-white" href="tel:+8801646418365">
+                <a
+                  className="text-md ml-2 text-white"
+                  href="tel:+8801646418365"
+                >
                   +8801646418365
                 </a>
               </div>
@@ -53,17 +64,34 @@ export default function Navbar() {
                   Winter Clothes Donation
                 </span>
               </Link>
-              <div className="pt-4 lg:pt-0">
-                <NavLink className="text-md" to="/winter-clothes">
-                  All Winter Clothes
-                </NavLink>
-                <NavLink className="text-md mx-4" to="/dashboard">
-                  Dashboard
-                </NavLink>
-                <NavLink className="text-md" to="/sign-in">
-                  Signin
-                </NavLink>
-              </div>
+              {token ? (
+                <div className="pt-4 lg:pt-0">
+                  <NavLink className="text-md" to="/winter-clothes">
+                    All Winter Clothes
+                  </NavLink>
+                  <NavLink className="text-md mx-4" to="/dashboard">
+                    Dashboard
+                  </NavLink>
+                  <button
+                    onClick={() => dispatch(logoutUser())}
+                    className="text-md border p-3 bg-red-500 text-white rounded-lg"
+                  >
+                    Logout
+                  </button>
+                </div>
+              ) : (
+                <div className="pt-4 lg:pt-0">
+                  <NavLink className="text-md" to="/winter-clothes">
+                    All Winter Clothes
+                  </NavLink>
+                  <NavLink
+                    className="text-md ml-4 border p-3 bg-[#191F2D] text-white rounded-lg"
+                    to="/sign-in"
+                  >
+                    Register
+                  </NavLink>
+                </div>
+              )}
             </div>
           </nav>
         </Container>

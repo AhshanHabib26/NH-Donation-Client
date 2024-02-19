@@ -26,7 +26,7 @@ export default function Signin() {
       dispatch(setUser({ user: user, token: res.token }));
       toast.success(res.message, { id: "authId" });
       reset();
-      navigate("/dashboard");
+      navigate("/");
     } catch (error: any) {
       if (error?.data?.message) {
         toast.error(error.data.message, { id: "authId" });
