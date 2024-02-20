@@ -3,7 +3,7 @@ import { TWinterCardProps } from "../types/types";
 import Styles from "../styles/WinterCard.module.css";
 
 const WinterCard: React.FC<TWinterCardProps> = ({ winter }) => {
-  const { id, title, image, size, category, description } = winter;
+  const { _id, title, image, size, category, description } = winter;
   const sizeBGColors = [
     "bg-blue-200",
     "bg-red-200",
@@ -52,7 +52,7 @@ const WinterCard: React.FC<TWinterCardProps> = ({ winter }) => {
         <div className="mt-6 flex items-end justify-end ">
           <Link
             className={`${Styles.cardBtn} bg-[#191F2D] px-5 py-3 rounded-lg text-white cursor-pointer`}
-            to={`/winter-clothes/${id}`}
+            to={`/winter-clothes/${_id}`}
           >
             View Details
           </Link>

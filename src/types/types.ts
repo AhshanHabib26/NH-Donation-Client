@@ -5,7 +5,7 @@ export type TContainerProps = {
 };
 
 type TWinter = {
-  id: number;
+  _id: number;
   title: string;
   image: string;
   description: string[];
@@ -25,4 +25,14 @@ export type TSignUpInputs = {
   name: string;
   email: string;
   password: string;
+};
+
+
+export type TDataType = {
+  _id: string;
+  title: string;
+  image: string;
+  category: string;
+  size: string[];
+  description: string;
 };

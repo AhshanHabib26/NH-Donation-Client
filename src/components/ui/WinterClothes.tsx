@@ -11,6 +11,7 @@ export default function WinterClothes() {
     return <Loader />;
   }
 
+
   return (
     <div className="my-28">
       <Container>
