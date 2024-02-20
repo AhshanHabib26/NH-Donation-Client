@@ -1,10 +1,14 @@
 import Loader from "../../../lib/Loader";
-import { useGetAllClothesQuery } from "../../../redux/features/clothe/clotheApi";
+import {
+  useDeleteClothesMutation,
+  useGetAllClothesQuery,
+} from "../../../redux/features/clothe/clotheApi";
 import { Table } from "@mantine/core";
 import { TDataType } from "../../../types/types";
 import { SquarePen, Trash2 } from "lucide-react";
 import ModalForm from "../../../utils/ModalForm";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 export default function AllWinterClothes() {
   const sizeBorderColors = [
@@ -17,10 +21,40 @@ export default function AllWinterClothes() {
   const { data, isLoading } = useGetAllClothesQuery("");
   const [opened, setOpened] = useState<boolean>(false);
   const [productId, setProductId] = useState<string>("");
+  const [deleteClothes] = useDeleteClothesMutation();
 
   const handleEditButton = (id: string) => {
     setProductId(id);
     setOpened(true);
+  };
+
+  const handleDeleteButton = (id: string) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+      cancelButtonText: "No, cancel!",
+      reverseButtons: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteClothes(id);
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+        Swal.fire({
+          title: "Cancelled",
+          text: "Your imaginary file is safe :)",
+          icon: "error",
+        });
+      }
+    });
   };
 
   if (isLoading) {
@@ -48,7 +82,9 @@ export default function AllWinterClothes() {
           <button onClick={() => handleEditButton(item._id)}>
             <SquarePen size={20} className=" cursor-pointer" />
           </button>
-          <Trash2 size={20} color="red" className=" cursor-pointer" />
+          <button onClick={() => handleDeleteButton(item._id)}>
+            <Trash2 size={20} color="red" className=" cursor-pointer" />
+          </button>
         </div>
       </Table.Td>
     </Table.Tr>

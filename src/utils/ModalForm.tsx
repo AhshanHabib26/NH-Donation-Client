@@ -67,9 +67,9 @@ const ModalForm: React.FC<ModalFormProps> = ({
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     try {
       e.preventDefault();
-      const res = await updateClothes({ id: productId, data: clothes });
+      await updateClothes({ id: productId, data: clothes });
 
-      toast.success(res.data.message);
+      toast.success("Clothes Updated Successfully!", { id: "clothUpdateId" });
       setOpened(false);
       setClothes({
         title: "",
@@ -79,7 +79,9 @@ const ModalForm: React.FC<ModalFormProps> = ({
         description: "",
       });
     } catch (error) {
-      toast.error("An error occurred. Please try again.", { id: "clothId" });
+      toast.error("An error occurred. Please try again.", {
+        id: "clothUpdateId",
+      });
     }
   };
 
