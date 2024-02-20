@@ -3,6 +3,8 @@ import { useGetAllClothesQuery } from "../../../redux/features/clothe/clotheApi"
 import { Table } from "@mantine/core";
 import { TDataType } from "../../../types/types";
 import { SquarePen, Trash2 } from "lucide-react";
+import ModalForm from "../../../utils/ModalForm";
+import { useState } from "react";
 
 export default function AllWinterClothes() {
   const sizeBorderColors = [
@@ -13,6 +15,13 @@ export default function AllWinterClothes() {
   ];
 
   const { data, isLoading } = useGetAllClothesQuery("");
+  const [opened, setOpened] = useState<boolean>(false);
+  const [productId, setProductId] = useState<string>("");
+
+  const handleEditButton = (id: string) => {
+    setProductId(id);
+    setOpened(true);
+  };
 
   if (isLoading) {
     return <Loader />;
@@ -36,7 +45,9 @@ export default function AllWinterClothes() {
       </Table.Td>
       <Table.Td>
         <div className="flex items-center justify-between">
-          <SquarePen size={20} className=" cursor-pointer" />
+          <button onClick={() => handleEditButton(item._id)}>
+            <SquarePen size={20} className=" cursor-pointer" />
+          </button>
           <Trash2 size={20} color="red" className=" cursor-pointer" />
         </div>
       </Table.Td>
@@ -45,7 +56,7 @@ export default function AllWinterClothes() {
 
   return (
     <div>
-      <div className=" max-w-6xl mx-5 lg:mx-auto my-5 shadow">
+      <div className=" max-w-5xl mx-5 lg:mx-auto my-5 shadow">
         <Table>
           <Table.Thead>
             <Table.Tr className="text-lg">
@@ -59,6 +70,7 @@ export default function AllWinterClothes() {
           <Table.Caption>All Winter Clothes Products</Table.Caption>
         </Table>
       </div>
+      <ModalForm opened={opened} setOpened={setOpened} productId={productId} />
     </div>
   );
 }

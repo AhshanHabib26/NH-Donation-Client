@@ -23,7 +23,7 @@ export default function Sidebar() {
             className="text-md ml-1"
             to="/dashboard/create-winter-clothes"
           >
-            Create Winter Clothes
+            Create Clothes
           </NavLink>
         </div>
 

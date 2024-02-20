@@ -27,7 +27,7 @@ export default function SingleWinterClothes() {
       </BackgroundImage>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl mx-5 lg:mx-auto">
         <div className="flex items-center justify-center">
-          <img className="w-[300px]" src={data.data.image} alt="" />
+          <img className="w-[300px] h-[300px] object-cover" src={data.data.image} alt="" />
         </div>
         <div className="my-8">
           <div className="flex items-center flex-wrap">
