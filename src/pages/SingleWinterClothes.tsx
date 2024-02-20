@@ -1,7 +1,7 @@
 import BackgroundImage from "../utils/BackgroundImage";
-import JacketImg from "../assets/images/Jacket.jpg";
-import { CheckSquare } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import { useGetSingleClothesQuery } from "../redux/features/clothe/clotheApi";
+import Loader from "../lib/Loader";
 export default function SingleWinterClothes() {
   const sizeBGColors = [
     "bg-blue-200",
@@ -9,55 +9,38 @@ export default function SingleWinterClothes() {
     "bg-green-200",
     "bg-orange-200",
   ];
+  const { id } = useParams();
+  const { data, isLoading } = useGetSingleClothesQuery(id);
 
-  const data = {
-    id: 1,
-    title:
-      "Hanes Men's Hoodie, Ecosmart Fleece Full-zip Hoodie, Zip-up Hooded Sweatshirt for Men ",
-    image: JacketImg,
-    description: [
-      "FLEECE TO FEEL GOOD ABOUT - Eco Smart mid-weight cotton/poly fleece with up to 5% of the poly fibers.",
-      "CLASSIC ZIP-FRONT SILHOUETTE - Full-zip front with a drawstring hood and front pockets.",
-      "MADE TO STAY SOFT - Pill-resistant durable fleece stays warm and cozy.",
-      "HOLDS ITS SHAPE - Thanks to ribbed cuffs and hem.",
-      "MADE TO LAST - Double-needle stitching at the neck and armhole seams for quality and durability, plus a dyed-to-match drawstring at the hood.",
-      "CONVENIENT TEARAWAY TAGS - Getting rid of itchy tags is super easy. Simply tear it off for comfort that lasts all day.",
-    ],
-    category: "Jacket",
-    size: ["Small", "Medium", "Large", "X-Large"],
-  };
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div>
       <BackgroundImage>
-        <div className="my-10  mx-auto text-center w-3/4 text-xl">
-          <h1 className=" bg-[#191F2D] text-white rounded-lg p-3 ">
-            {data.title}
+        <div className="mx-auto text-center w-3/4 text-xl">
+          <h1 className=" bg-[#191F2D] text-white rounded-lg p-2 ">
+            {data.data.title}
           </h1>
         </div>
       </BackgroundImage>
-      <div className="max-w-5xl mx-5 lg:mx-auto border border-[#bfbfc0] border-dotted my-12 rounded-lg p-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl mx-5 lg:mx-auto">
         <div className="flex items-center justify-center">
-          <img className="w-[300px]" src={data.image} alt="" />
+          <img className="w-[300px]" src={data.data.image} alt="" />
         </div>
         <div className="my-8">
           <div className="flex items-center flex-wrap">
-            <h1 className="text-lg font-medium">
-              Product Title:
-            </h1>
-            <span className="text-md ml-2">{data.title}</span>
+            <h1 className="text-lg font-medium">Product Title:</h1>
+            <span className="text-md ml-2">{data.data.title}</span>
           </div>
           <div className="flex items-center my-1 flex-wrap">
-            <h1 className="text-lg  font-medium">
-              Product Category:
-            </h1>
-            <span className="text-md ml-2">{data.category}</span>
+            <h1 className="text-lg  font-medium">Product Category:</h1>
+            <span className="text-md ml-2">{data.data.category}</span>
           </div>
           <div className="flex items-center flex-wrap">
-            <h1 className="text-lg  font-medium">
-              Available Size:{" "}
-            </h1>
-            {data.size.map((item, index) => (
+            <h1 className="text-lg  font-medium">Available Size: </h1>
+            {data.data.size.map((item: string, index: number) => (
               <p
                 className={`border ml-2 px-2 py-1 rounded-md cursor-pointer text-md  ${
                   sizeBGColors[index % sizeBGColors.length]
@@ -70,16 +53,16 @@ export default function SingleWinterClothes() {
           </div>
           <div className="my-2 lg:my-1">
             <h1 className="text-lg  font-medium">Product Description:</h1>
-            {data.description.map((item, index) => (
-              <div className="flex items-start lg:items-center" key={index}>
-                <CheckSquare className=" flex shrink-0" size={18} color="#f86156"  />
-                <p className="text-md ml-2">{item}</p>
-              </div>
-            ))}
+            <p>{data.data.description}</p>
           </div>
-        </div>
-        <div className="flex justify-end">
-            <Link className="bg-[#D53F34] px-4 py-3 text-white rounded-md cursor-pointer" to="/">Donation Now</Link>
+          <div className=" mt-8 flex items-end justify-end">
+            <Link
+              className="bg-[#D53F34] px-4 py-3 text-white rounded-md cursor-pointer"
+              to="/"
+            >
+              Donation Now
+            </Link>
+          </div>
         </div>
       </div>
     </div>
