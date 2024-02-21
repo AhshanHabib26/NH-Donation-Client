@@ -42,10 +42,9 @@ export default function Dashboard() {
 
   /***********  Total Donation Product Count By Title ****************/
 
+  /***********  Total Donation Product Count By Category ****************/
 
-/***********  Total Donation Product Count By Category ****************/
-
-const totalCategory: string[] = data.result.map((t: any) => t.category);
+  const totalCategory: string[] = data.result.map((t: any) => t.category);
   const countByCategory: { [key: string]: number } = totalCategory.reduce(
     (acc, curr) => {
       acc[curr] = (acc[curr] || 0) + 1;
@@ -54,15 +53,14 @@ const totalCategory: string[] = data.result.map((t: any) => t.category);
     {}
   );
 
-  const categoryChartData = Object.keys(countByCategory).map(category => ({
+  const categoryChartData = Object.keys(countByCategory).map((category) => ({
     name: category,
-    value: countByCategory[category]
+    value: countByCategory[category],
   }));
 
-  console.log(countByCategory)
+  console.log(countByCategory);
 
-
-/***********  Total Donation Product Count By Category ****************/
+  /***********  Total Donation Product Count By Category ****************/
 
   return (
     <div>
@@ -71,7 +69,7 @@ const totalCategory: string[] = data.result.map((t: any) => t.category);
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
         <DonationCount donationCount={donationCount} />
-        <CategoryCount categoryChartData={categoryChartData}/>
+        <CategoryCount categoryChartData={categoryChartData} />
       </div>
       <div className="my-8 shadow p-3">
         <ProductNameCount totalTitleChart={totalTitleChart} />

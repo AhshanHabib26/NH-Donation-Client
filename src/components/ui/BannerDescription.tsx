@@ -2,6 +2,7 @@ import Container from "../../utils/Container";
 import clothesOne from "../../assets/icons/clothes-1.png";
 import clothesTwo from "../../assets/icons/clothes-2.png";
 import clothesThree from "../../assets/icons/clothes-3.png";
+import { motion } from "framer-motion";
 
 const clothesData = [
   {
@@ -41,16 +42,20 @@ export default function BannerDescription() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {clothesData.map((cloth) => (
-            <div
+            <motion.div
+              whileHover={{
+                scale: 1.056,
+                transition: { duration: .5 },
+              }}
               key={cloth.id}
-              className=" shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant hover:shadow-xl"
+              className=" shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant"
             >
               <img className=" size-20 rounded-lg" src={cloth.image} alt="" />
               <div className="text-center mt-5">
                 <h1 className="text-2xl font-semibold my-1">{cloth.title}</h1>
                 <p className="text-md ">{cloth.description}</p>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </Container>
