@@ -55,7 +55,7 @@ const TestimonialData = [
 
 export default function Testimonial() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <div className={`${Styles.TBG} p-4`}>
         <Container>
           <div className="text-center mb-6">

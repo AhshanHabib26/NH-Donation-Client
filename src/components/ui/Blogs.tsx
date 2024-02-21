@@ -31,7 +31,7 @@ const blogData = [
 
 export default function Blogs() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <Container>
         <div className="text-center mb-12">
           <p className="text-lg font-light text-[#D53F34]">Blog</p>
@@ -39,7 +39,12 @@ export default function Blogs() {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {blogData.map((blog) => (
-            <div key={blog.id} className={`${Styles.blogContainer} border`}>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="3000"
+              key={blog.id}
+              className={`${Styles.blogContainer} border`}
+            >
               <img
                 className={`${Styles.blogImage} w-full h-[250px] object-cover opacity-85`}
                 src={blog.image}

@@ -30,7 +30,7 @@ const clothesData = [
 
 export default function BannerDescription() {
   return (
-    <div className="my-28">
+    <div className="mt-20">
       <Container>
         <div className="text-center mb-14">
           <p className="text-lg font-light text-[#D53F34]">
@@ -40,7 +40,7 @@ export default function BannerDescription() {
             With Your Support, Everyone Can Enjoy A Warm Cloth
           </h1>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mx-5 lg:mx-auto">
           {clothesData.map((cloth) => (
             <motion.div
               whileHover={{

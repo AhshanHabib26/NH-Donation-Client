@@ -21,6 +21,7 @@
     "@tiptap/extension-link": "^2.2.3",
     "@tiptap/react": "^2.2.3",
     "@tiptap/starter-kit": "^2.2.3",
+    "aos": "^2.3.4",
     "embla-carousel-react": "^7.1.0",
     "framer-motion": "^11.0.5",
     "jwt-decode": "^4.0.0",
@@ -38,6 +39,7 @@
     "swiper": "^11.0.6"
   },
   "devDependencies": {
+    "@types/aos": "^3.0.7",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^6.21.0",

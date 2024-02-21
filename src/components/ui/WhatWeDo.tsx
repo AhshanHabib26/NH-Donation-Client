@@ -6,7 +6,7 @@ import helpImg from "../../assets/icons/help.png";
 import houseImg from "../../assets/icons/house.png";
 import numberImg from "../../assets/icons/numbers.png";
 import Styles from "../../styles/WhatWeDo.module.css";
-
+import { motion } from "framer-motion";
 const whatWeDoData = [
   {
     id: 1,
@@ -54,7 +54,7 @@ const whatWeDoData = [
 
 export default function WhatWeDo() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <Container>
         <div className="text-center mb-14">
           <p className="text-lg font-light text-[#D53F34]">What we do?</p>
@@ -65,9 +65,13 @@ export default function WhatWeDo() {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-5 lg:mx-auto">
             {whatWeDoData.map((item) => (
-              <div
+              <motion.div
+                whileHover={{
+                  scale: 1.056,
+                  transition: { duration: 0.5 },
+                }}
                 key={item.id}
-                className={`${Styles.WWDMain} flex items-start shadow p-3 hover:shadow-xl`}
+                className={`${Styles.WWDMain} flex items-start shadow p-3`}
               >
                 <div className={`${Styles.WWDImgContainer} mr-8`}>
                   <img
@@ -85,7 +89,7 @@ export default function WhatWeDo() {
                     120
                   )}..`}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

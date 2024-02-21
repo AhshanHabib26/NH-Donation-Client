@@ -57,7 +57,7 @@ const eventsData = [
 
 export default function Events() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <div className="bg-gradient-to-r from-[#EDECDA] to-[#cdebea] py-8">
         <Container>
           <div className="text-center mb-6">

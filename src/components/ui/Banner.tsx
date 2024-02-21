@@ -66,7 +66,7 @@ export default function Banner() {
                   </div>
                   <div className="flex flex-1 justify-center lg:justify-end my-5 lg:my-0">
                     <img
-                      className=" w-[480px] h-[480px] rounded-3xl lg:rounded-3xl shadow-2xl opacity-80"
+                      className=" w-[380px] lg:w-[450px] h-[380px] lg:h-[450px] rounded-3xl lg:rounded-3xl shadow-2xl opacity-80"
                       src={item.image}
                       alt=""
                     />

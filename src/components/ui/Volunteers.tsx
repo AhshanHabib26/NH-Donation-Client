@@ -27,7 +27,7 @@ const VolunteerData = [
 
 export default function Volunteers() {
   return (
-    <div className="mt-24">
+    <div className="mt-20">
       <Container>
         <div className="text-center mb-14">
           <p className="text-lg font-light text-[#D53F34]">
