@@ -1,4 +1,4 @@
-import Loader from "../../../lib/Loader";
+import DashboardLoader from "../../../lib/DashboardLoader";
 import { useGetAllNewDataQuery } from "../../../redux/features/newClothe/newClotheApi";
 import CategoryCount from "./chart/CategoryCount";
 import DonationCount from "./chart/DonationCount";
@@ -12,7 +12,7 @@ export default function Dashboard() {
   const { data, isLoading } = useGetAllNewDataQuery("");
 
   if (isLoading) {
-    return <Loader />;
+    return <DashboardLoader />;
   }
 
   /***********  Total Donation Count ****************/

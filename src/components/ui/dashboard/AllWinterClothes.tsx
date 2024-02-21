@@ -1,4 +1,4 @@
-import Loader from "../../../lib/Loader";
+
 import {
   useDeleteClothesMutation,
   useGetAllClothesQuery,
@@ -10,6 +10,7 @@ import ModalForm from "../../../utils/ModalForm";
 import { useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import WinterClothesLoader from "../../../lib/WinterClothesLoader";
 
 export default function AllWinterClothes() {
   const sizeBorderColors = [
@@ -59,7 +60,7 @@ export default function AllWinterClothes() {
   };
 
   if (isLoading) {
-    return <Loader />;
+    return <WinterClothesLoader />;
   }
 
   const rows = data.data.map((item: TDataType) => (
