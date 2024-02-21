@@ -1,6 +1,6 @@
 import Container from "../utils/Container";
 import Styles from "../styles/Loader.module.css";
-
+/* eslint-disable no-unused-vars */
 export default function Loader() {
   const Counter = ["", "", "", "", "", ""];
 
@@ -11,7 +11,7 @@ export default function Loader() {
           {Counter.map((count, index) => (
             <div
               key={index}
-              className={`${Styles.loaderContainer} border p-3 rounded-md`}
+              className={`${Styles.loaderContainer} ${count} border p-3 rounded-md`}
             >
               <img className="h-[200px] bg-gray-300 rounded-sm" src="" alt="" />
               <button className="bg-gray-300 w-[80px] h-[40px] mt-3 rounded-md"></button>

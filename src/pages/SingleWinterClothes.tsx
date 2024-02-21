@@ -8,7 +8,7 @@ import {
   useCureentUser,
 } from "../redux/features/auth/authSlice";
 import { useCreateNewDataMutation } from "../redux/features/newClothe/newClotheApi";
-import toast from "react-hot-toast";
+import Swal from "sweetalert2";
 export default function SingleWinterClothes() {
   const sizeBGColors = [
     "bg-blue-200",
@@ -38,7 +38,9 @@ export default function SingleWinterClothes() {
   };
 
   const newUserData: TNewUserData = {
+    // @ts-ignore
     name: user?.name,
+    // @ts-ignore
     email: user?.email,
     title: data.data.title,
     image: data.data.image,
@@ -51,11 +53,25 @@ export default function SingleWinterClothes() {
     if (!token) {
       navigate("/sign-in");
     } else {
-      const result = await createNewData(newUserData);
-      if ("data" in result && result.data) {
-        toast.success(result.data.message);
-      }
-      navigate("/dashboard");
+      Swal.fire({
+        title: "Donate Us!",
+        text: "Happiness doesn't result from what we get, but from what we give!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "Donate Success!",
+            text: "Thanks for donate & support us!",
+            icon: "success",
+          });
+          createNewData(newUserData);
+          navigate("/dashboard");
+        }
+      });
     }
   };
 

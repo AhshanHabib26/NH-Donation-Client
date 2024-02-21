@@ -29,6 +29,7 @@ export default function Dashboard() {
   const totalTitles: string[] = data.result.map((t: any) => t.title);
   const countByTitle: { [key: string]: number } = totalTitles.reduce(
     (acc, curr) => {
+      // @ts-ignore
       acc[curr] = (acc[curr] || 0) + 1;
       return acc;
     },
@@ -47,7 +48,8 @@ export default function Dashboard() {
   const totalCategory: string[] = data.result.map((t: any) => t.category);
   const countByCategory: { [key: string]: number } = totalCategory.reduce(
     (acc, curr) => {
-      acc[curr] = (acc[curr] || 0) + 1;
+      // @ts-ignore
+      acc[curr]= (acc[curr] || 0) + 1;
       return acc;
     },
     {}

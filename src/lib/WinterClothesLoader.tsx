@@ -1,5 +1,5 @@
 import Styles from "../styles/Loader.module.css";
-
+/* eslint-disable no-unused-vars */
 export default function WinterClothesLoader() {
   const Counter = ["", "", "", "", "", "", "", ""];
 
@@ -22,11 +22,11 @@ export default function WinterClothesLoader() {
           <h1 className="bg-gradient-to-l from-[#d3d3d1] to-[#cde2e1] p-5 rounded-md flex-wrap"></h1>
         </div>
       </div>
-
+      // @ts-ignore
       {Counter.map((count, index) => (
         <div
           key={index}
-          className={`${Styles.loaderContainer} flex items-center justify-between mb-3`}
+          className={`${Styles.loaderContainer} ${count} flex items-center justify-between mb-3`}
         >
           <div>
             <p className="bg-gradient-to-l from-[#d3d3d1] to-[#cde2e1] p-5 lg:w-[500px] rounded-md"></p>
