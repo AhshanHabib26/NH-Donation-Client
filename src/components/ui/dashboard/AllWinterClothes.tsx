@@ -37,8 +37,8 @@ export default function AllWinterClothes() {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-      cancelButtonText: "No, cancel!",
+      cancelButtonText: "No, Cancel!",
+      confirmButtonText: "Yes, Delete!",
       reverseButtons: true,
     }).then((result) => {
       if (result.isConfirmed) {
