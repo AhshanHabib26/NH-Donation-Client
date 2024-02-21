@@ -5,6 +5,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import { persistor, store } from "./redux/store.ts";
 import { PersistGate } from "redux-persist/integration/react";
+import "@mantine/charts/styles.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>

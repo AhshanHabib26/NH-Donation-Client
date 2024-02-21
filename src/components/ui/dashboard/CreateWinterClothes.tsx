@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useCreateClothesMutation } from "../../../redux/features/clothe/clotheApi";
 import toast from "react-hot-toast";
 
+
 export default function CreateWinterClothes() {
   const [createClothes] = useCreateClothesMutation();
+  
 
   const [clothes, setClothes] = useState({
     title: "",

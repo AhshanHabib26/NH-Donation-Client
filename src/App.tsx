@@ -5,6 +5,7 @@ import "@mantine/core/styles.css";
 import { MantineProvider } from "@mantine/core";
 import "sweetalert2/dist/sweetalert2.min.css";
 
+
 function App() {
   return (
     <>

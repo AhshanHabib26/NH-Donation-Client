@@ -9,6 +9,7 @@ import { SquarePen, Trash2 } from "lucide-react";
 import ModalForm from "../../../utils/ModalForm";
 import { useState } from "react";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 export default function AllWinterClothes() {
   const sizeBorderColors = [
@@ -92,6 +93,15 @@ export default function AllWinterClothes() {
 
   return (
     <div>
+      <div className=" flex justify-end">
+        <Link
+          to="/dashboard/create-winter-clothes"
+          className="flex items-center bg-[#191F2D] p-3 rounded-md text-white"
+        >
+          <SquarePen size={20} color="#fff" className="mr-2" />
+          Add Clothes
+        </Link>
+      </div>
       <div className=" max-w-5xl mx-5 lg:mx-auto my-5 shadow">
         <Table>
           <Table.Thead>

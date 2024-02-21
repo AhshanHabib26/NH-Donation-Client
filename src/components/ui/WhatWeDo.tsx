@@ -44,7 +44,7 @@ const whatWeDoData = [
     image: numberImg,
   },
   {
-    id: 1,
+    id: 6,
     title: "Social Care",
     description:
       "Donations enable the distribution of warm clothing, blankets, and essential shelter to individuals and families facing exposure to the elements. Many people struggle to access nutritious food during the winter. Winter donations help ensure that everyone can enjoy warm, nourishing meals.",
@@ -65,7 +65,10 @@ export default function WhatWeDo() {
         <div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-5 lg:mx-auto">
             {whatWeDoData.map((item) => (
-              <div className={`${Styles.WWDMain} flex items-start shadow p-3 hover:shadow-xl`}>
+              <div
+                key={item.id}
+                className={`${Styles.WWDMain} flex items-start shadow p-3 hover:shadow-xl`}
+              >
                 <div className={`${Styles.WWDImgContainer} mr-8`}>
                   <img
                     className={`${Styles.WWDImg} w-[180px] `}

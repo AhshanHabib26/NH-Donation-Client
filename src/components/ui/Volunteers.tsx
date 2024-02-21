@@ -18,7 +18,7 @@ const VolunteerData = [
     avatar: VolunteerImgOne,
   },
   {
-    id: 1,
+    id: 3,
     name: "Dainne Russel",
     title: "HealthCare Volunteer",
     avatar: VolunteerImgTwo,
