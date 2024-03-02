@@ -1,5 +1,7 @@
 import DashboardLoader from "../../../lib/DashboardLoader";
 import { useGetAllNewDataQuery } from "../../../redux/features/newClothe/newClotheApi";
+import { useCureentThemeMode } from "../../../redux/features/theme/themeSlice";
+import { useAppSelector } from "../../../redux/hooks";
 import CategoryCount from "./chart/CategoryCount";
 import DonationCount from "./chart/DonationCount";
 import ProductNameCount from "./chart/ProductNameCount";
@@ -9,6 +11,7 @@ interface ITotalDonation {
 }
 
 export default function Dashboard() {
+  const mode = useAppSelector(useCureentThemeMode)
   const { data, isLoading } = useGetAllNewDataQuery("");
 
   if (isLoading) {
@@ -60,16 +63,16 @@ export default function Dashboard() {
     value: countByCategory[category],
   }));
 
-  console.log(countByCategory);
+
 
   /***********  Total Donation Product Count By Category ****************/
 
   return (
     <div>
-      <h1 className="text-xl font-semibold text-[#191F2D] mb-5">
+      <h1 className={`text-xl font-semibold ${ mode? "text-[#fff]" : "text-[#191F2D]"} mb-5`}>
         Winter Clothes Data Info
       </h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto">
         <DonationCount donationCount={donationCount} />
         <CategoryCount categoryChartData={categoryChartData} />
       </div>

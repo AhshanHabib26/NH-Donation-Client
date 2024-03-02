@@ -6,7 +6,10 @@ import {
   CartesianGrid,
   Tooltip,
   Legend,
+  ResponsiveContainer,
 } from "recharts";
+import { useCureentThemeMode } from "../../../../redux/features/theme/themeSlice";
+import { useAppSelector } from "../../../../redux/hooks";
 
 const CustomTooltip: React.FC<{
   active?: boolean;
@@ -17,7 +20,7 @@ const CustomTooltip: React.FC<{
     return (
       <div
         style={{
-          width: "600px",
+          width: "80%",
           backgroundColor: "white",
           border: "1px solid #ccc",
           padding: "10px",
@@ -33,16 +36,23 @@ const CustomTooltip: React.FC<{
 };
 
 const ProductNameCount = ({ totalTitleChart }: any) => {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
-    <div >
-      <BarChart width={800} height={350} data={totalTitleChart}>
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="title" />
-        <YAxis />
-        <Tooltip content={<CustomTooltip />} />
-        <Legend />
-        <Bar  dataKey="CountByProductTitle" fill="#191F2D" />
-      </BarChart>
+    <div style={{ width: '100%', height: 350 }}>
+      <ResponsiveContainer>
+        <BarChart  data={totalTitleChart}>
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="title" />
+          <YAxis />
+          <Tooltip content={<CustomTooltip />} />
+          <Legend />
+          <Bar
+            dataKey="CountByProductTitle"
+            fill={`${mode ? "#D53F34" : "#191F2D"}`}
+          />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 };

@@ -1,4 +1,3 @@
-
 import {
   useDeleteClothesMutation,
   useGetAllClothesQuery,
@@ -11,8 +10,12 @@ import { useState } from "react";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import WinterClothesLoader from "../../../lib/WinterClothesLoader";
+import { useAppSelector } from "../../../redux/hooks";
+import { useCureentThemeMode } from "../../../redux/features/theme/themeSlice";
 
 export default function AllWinterClothes() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   const sizeBorderColors = [
     "bg-blue-600",
     "bg-slate-600",
@@ -65,8 +68,14 @@ export default function AllWinterClothes() {
 
   const rows = data.data.map((item: TDataType) => (
     <Table.Tr key={item._id}>
-      <Table.Td className=" max-w-md">{item.title}</Table.Td>
-      <Table.Td>{item.category}</Table.Td>
+      <Table.Td
+        className={`max-w-md ${mode ? "text-white" : "text-[#191F2D]"}`}
+      >
+        {item.title}
+      </Table.Td>
+      <Table.Td className={`${mode ? "text-white" : ""}`}>
+        {item.category}
+      </Table.Td>
       <Table.Td>
         {item.size.map((i: string, index: number) => (
           <button
@@ -82,7 +91,12 @@ export default function AllWinterClothes() {
       <Table.Td>
         <div className="flex items-center justify-between">
           <button onClick={() => handleEditButton(item._id)}>
-            <SquarePen size={20} className=" cursor-pointer" />
+            <SquarePen
+              size={20}
+              className={` cursor-pointer ${
+                mode ? "text-white" : "text-[#191F2D]"
+              }`}
+            />
           </button>
           <button onClick={() => handleDeleteButton(item._id)}>
             <Trash2 size={20} color="red" className=" cursor-pointer" />
@@ -97,7 +111,7 @@ export default function AllWinterClothes() {
       <div className=" flex justify-end">
         <Link
           to="/dashboard/create-winter-clothes"
-          className="flex items-center bg-[#191F2D] p-3 rounded-md text-white"
+          className={`flex items-center ${mode ? "bg-[#D53F34]" : "bg-[#191F2D]"} p-3 rounded-md text-white`}
         >
           <SquarePen size={20} color="#fff" className="mr-2" />
           Add Clothes
@@ -107,10 +121,14 @@ export default function AllWinterClothes() {
         <Table>
           <Table.Thead>
             <Table.Tr className="text-lg">
-              <Table.Th>Title</Table.Th>
-              <Table.Th>Category</Table.Th>
-              <Table.Th>Size</Table.Th>
-              <Table.Th>Action</Table.Th>
+              <Table.Th
+                className={` ${mode ? "text-white" : "text-[#191F2D]"}`}
+              >
+                Title
+              </Table.Th>
+              <Table.Th className={` ${mode ? "text-white" : "text-[#191F2D]"}`}>Category</Table.Th>
+              <Table.Th className={` ${mode ? "text-white" : "text-[#191F2D]"}`}>Size</Table.Th>
+              <Table.Th className={` ${mode ? "text-white" : "text-[#191F2D]"}`}>Action</Table.Th>
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>{rows}</Table.Tbody>
