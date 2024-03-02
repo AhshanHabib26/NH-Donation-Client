@@ -10,6 +10,8 @@ import "swiper/css";
 import { SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 const gallaryData = [
   {
     id: 1,
@@ -53,6 +55,8 @@ function getRandomColor() {
 }
 
 export default function GallarySlide() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
     <div className="mt-20">
       <Container>
@@ -81,7 +85,11 @@ export default function GallarySlide() {
               <div>
                 {gallaryData.map((gallery) => (
                   <SwiperSlide key={gallery.id}>
-                    <div className="p-3 max-w-5xl mx-5 lg:mx-auto shadow-lg border border-dashed border-gray-100  rounded-lg">
+                    <div
+                      className={`p-3 max-w-5xl mx-5 lg:mx-auto shadow-lg ${
+                        mode ? "border border-dashed border-gray-700" : "border border-dashed border-gray-100"
+                      }  rounded-lg`}
+                    >
                       <img
                         className="w-full h-[300px] lg:h-[400px] object-cover  rounded-t-lg"
                         src={gallery.image}
