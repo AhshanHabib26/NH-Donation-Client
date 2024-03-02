@@ -3,8 +3,11 @@ import { TSignUpInputs } from "../types/types";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useRegisterUserMutation } from "../redux/features/auth/authApi";
 import toast from "react-hot-toast";
+import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
+import { useAppSelector } from "../redux/hooks";
 
 export default function Signup() {
+  const mode = useAppSelector(useCureentThemeMode);
   const [registerUser] = useRegisterUserMutation();
   const navigate = useNavigate();
 
@@ -33,15 +36,27 @@ export default function Signup() {
 
   return (
     <div>
-      <div className=" max-w-xl mx-4 lg:mx-auto mt-16 p-4 shadow-lg border border-gray-200 rounded-lg">
+      <div
+        className={`${
+          mode
+            ? "max-w-xl mx-4 lg:mx-auto mt-16 p-4 shadow-2xl border border-slate-700  rounded-lg"
+            : "max-w-xl mx-4 lg:mx-auto mt-16 p-4 shadow-lg border border-gray-200 rounded-lg"
+        }`}
+      >
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="text-xl text-center uppercase font-semibold text-[#D53F34]">
             Sign up
           </h1>
-          <hr className="mb-6 w-[20%] mx-auto border-[#fdd6d3]" />
+          <hr
+            className={` ${
+              mode
+                ? "mb-6 w-[15%] mx-auto border-[#474747]"
+                : "mb-6 w-[15%] mx-auto border-[#fdd6d3]"
+            }`}
+          />
           <div>
             <input
-              className="w-full h-[50px] outline-none border rounded-sm pl-2"
+              className="w-full h-[50px] outline-none border text-[#191F2D] rounded-sm pl-2"
               placeholder="Name"
               {...register("name", { required: true })}
             />
@@ -51,7 +66,7 @@ export default function Signup() {
           </div>
           <div>
             <input
-              className="w-full h-[50px] outline-none border rounded-sm pl-2 mt-3"
+              className="w-full h-[50px] text-[#191F2D] outline-none border rounded-sm pl-2 mt-3"
               placeholder="Email"
               {...register("email", { required: true })}
             />
@@ -61,7 +76,8 @@ export default function Signup() {
           </div>
           <div className="my-3">
             <input
-              className="w-full h-[50px] outline-none border rounded-sm pl-2"
+              className="w-full h-[50px] text-[#191F2D] outline-none border rounded-sm pl-2"
+              type="password"
               placeholder="Password"
               {...register("password", { required: true })}
             />
@@ -70,11 +86,13 @@ export default function Signup() {
             )}
           </div>
           <input
-            className=" bg-[#191F2D] w-[120px] h-[50px] text-white text-lg rounded-sm cursor-pointer"
+            className={` ${
+              mode ? "bg-[#D53F34]" : "bg-[#191F2D]"
+            } w-[120px] h-[50px] text-white text-lg rounded-sm cursor-pointer`}
             type="submit"
             value="Sign up"
           />
-          <p className="text-lg mt-3  text-center font-medium">
+          <p className="text-md mt-3  text-center font-medium">
             Already have an account?
             <Link className="ml-1 text-[#D53F34]" to="/sign-in">
               Sign in

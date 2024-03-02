@@ -73,7 +73,7 @@ export default function Navbar() {
                   </NavLink>
                   <button
                     onClick={() => dispatch(logoutUser())}
-                    className="text-md border p-3 bg-red-500 text-white rounded-lg"
+                    className="text-md  p-3 bg-red-500 text-white rounded-lg"
                   >
                     Logout
                   </button>
