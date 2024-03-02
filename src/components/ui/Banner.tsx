@@ -5,10 +5,12 @@ import { SwiperSlide } from "swiper/react";
 import BannerImg from "../../assets/images/Banner.jpg";
 import BannerImgOne from "../../assets/images/Banner-1.jpeg";
 import BannerImgTwo from "../../assets/images/Banner-2.jpg";
-import BackgroundImage from "../../utils/BackgroundImage";
 import { Link } from "react-router-dom";
 import { Autoplay, EffectFade } from "swiper/modules";
 import "swiper/css/effect-fade";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
+import Styles from "../../styles/BackgroundImage.module.css";
 
 const BannerData = [
   {
@@ -29,8 +31,10 @@ const BannerData = [
 ];
 
 export default function Banner() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
-    <BackgroundImage>
+    <div className={`${mode ? "py-5" : `${Styles.bgImage} py-5`}`}>
       <Container>
         <div>
           <SwiperComponent
@@ -46,7 +50,13 @@ export default function Banner() {
               <SwiperSlide key={item.id}>
                 <div className="flex items-center justify-between flex-col lg:flex-row">
                   <div className="flex flex-1 flex-col">
-                    <h1 className="text-5xl lg:text-7xl font-bold max-w-[10ch] text-[#191F2D] text-center lg:text-left">
+                    <h1
+                      className={`${
+                        mode
+                          ? "text-5xl lg:text-7xl font-bold max-w-[10ch] text-[#fff] text-center lg:text-left"
+                          : "text-5xl lg:text-7xl font-bold max-w-[10ch] text-[#191F2D] text-center lg:text-left"
+                      }`}
+                    >
                       {item.title}
                     </h1>
                     <div className="my-8">
@@ -57,7 +67,11 @@ export default function Banner() {
                         Learn More
                       </Link>
                       <Link
-                        className="bg-[#191F2D] px-6 py-4 ml-3 text-lg text-white rounded-full font-light"
+                        className={` ${
+                          mode
+                            ? " bg-slate-300 px-6 py-4 ml-3 text-lg text-slate-800 rounded-full font-light"
+                            : "bg-[#191F2D] px-6 py-4 ml-3 text-lg text-white rounded-full font-light"
+                        }`}
                         to="/"
                       >
                         Donate Now
@@ -77,6 +91,6 @@ export default function Banner() {
           </SwiperComponent>
         </div>
       </Container>
-    </BackgroundImage>
+    </div>
   );
 }

@@ -7,6 +7,7 @@ import {
   logoutUser,
   useCureentToken,
 } from "../../redux/features/auth/authSlice";
+import ThemeModeButton from "../../utils/ThemeModeButton";
 
 export default function Navbar() {
   const token = useAppSelector(useCureentToken);
@@ -37,23 +38,21 @@ export default function Navbar() {
                 </a>
               </div>
             </div>
-            <div className="info hidden lg:block">
+            <div className=" flex items-center">
               <NavLink className="text-md text-white" to="/">
                 Terms & Condition
               </NavLink>
               <NavLink className="text-md mx-4 text-white" to="/">
                 Privacy Policy
               </NavLink>
-              <NavLink
-                className="text-md text-white p-3 bg-[#D53F34] rounded-md focus:bg-[#eb463b]"
-                to="/"
-              >
-                Donate Now
-              </NavLink>
+              <div>
+                <ThemeModeButton />
+              </div>
             </div>
           </nav>
         </Container>
       </div>
+      <hr className=" w-full border-slate-700" />
       <div className="mainNavbar py-4 shadow-lg">
         <Container>
           <nav>
