@@ -1,17 +1,16 @@
 import { Table } from "@mantine/core";
-import { useGetAllNewDataQuery } from "../../../redux/features/newClothe/newClotheApi";
-import WinterClothesLoader from "../../../lib/WinterClothesLoader";
-import { useAppSelector } from "../../../redux/hooks";
-import { useCureentThemeMode } from "../../../redux/features/theme/themeSlice";
+import { useGetAllNewDataQuery } from "../redux/features/newClothe/newClotheApi";
+import { useAppSelector } from "../redux/hooks";
+import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
+import Loader from "../lib/Loader";
+import { Crown } from "lucide-react";
 
 interface IUserData {
   name: string;
   email: string;
 }
 
-const countUserData = (
-  data: IUserData[]
-): { name: string; email: string; count: number }[] => {
+const countUserData = (data: IUserData[]) => {
   const counts: { [key: string]: number } = {};
   data.forEach(({ name, email }) => {
     const key = `${name}-${email}`;
@@ -26,7 +25,10 @@ const countUserData = (
 
   countsArray.sort((a, b) => b.count - a.count);
 
-  return countsArray;
+  return countsArray.map((user) => ({
+    ...user,
+    isTopDonor: countsArray.indexOf(user) < 3,
+  }));
 };
 
 export default function Leaderboard() {
@@ -34,21 +36,21 @@ export default function Leaderboard() {
   const { data, isLoading } = useGetAllNewDataQuery("");
 
   if (isLoading) {
-    return <WinterClothesLoader />;
+    return <Loader />;
   }
 
-  const userData = countUserData(data?.result);
+  const userData = countUserData(data?.result || []);
 
   return (
     <div>
       <h1
-        className={`text-xl font-semibold ${
+        className={`text-xl font-semibold text-center ${
           mode ? "text-[#fff]" : "text-[#191F2D]"
-        } mb-5`}
+        } my-5`}
       >
         Top Donors Leaderboard
       </h1>
-      <div className=" max-w-5xl mx-5 lg:mx-auto my-5 shadow">
+      <div className=" max-w-6xl mx-5 lg:mx-auto my-5 shadow">
         <Table>
           <Table.Thead>
             <Table.Tr
@@ -74,7 +76,7 @@ export default function Leaderboard() {
             </Table.Tr>
           </Table.Thead>
           <Table.Tbody>
-            {userData.map(({ name, email, count }, index) => (
+            {userData.map(({ name, email, count, isTopDonor }, index) => (
               <Table.Tr
                 className={`${
                   mode ? "border border-slate-700" : "border border-slate-300"
@@ -82,9 +84,9 @@ export default function Leaderboard() {
                 key={index}
               >
                 <Table.Td
-                  className={`${mode ? "text-white" : "text-[#191F2D]"}`}
+                  className={`${mode ? "text-white" : "text-[#191F2D]"} flex items-center`}
                 >
-                  {name}
+                  {name} {isTopDonor && <Crown size={18} color={`${mode ? "#D53F34" : "#191F2D"}`} className="ml-2" />}
                 </Table.Td>
                 <Table.Td
                   className={` ${mode ? "text-white" : "text-[#191F2D]"}`}

@@ -59,16 +59,17 @@ export default function Navbar() {
             <div className="flex items-center justify-center flex-wrap lg:justify-between">
               <Link to="/" className="flex items-center ">
                 <img className=" size-10" src={logo} alt="" />
-                <span className="ml-2 text-xl font-semibold ">
-                  NH Donation
-                </span>
+                <span className="ml-2 text-xl font-semibold ">NH Donation</span>
               </Link>
               {token ? (
                 <div className="pt-4 lg:pt-0">
                   <NavLink className="text-md" to="/winter-clothes">
                     All Winter Clothes
                   </NavLink>
-                  <NavLink className="text-md mx-4" to="/dashboard">
+                  <NavLink className="text-md mx-3" to="/leaderboard">
+                    Top Donors
+                  </NavLink>
+                  <NavLink className="text-md mr-3" to="/dashboard">
                     Dashboard
                   </NavLink>
                   <button

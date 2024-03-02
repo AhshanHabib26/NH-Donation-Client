@@ -10,7 +10,7 @@ import Dashboard from "../components/ui/dashboard/Dashboard";
 import AllWinterClothes from "../components/ui/dashboard/AllWinterClothes";
 import CreateWinterClothes from "../components/ui/dashboard/CreateWinterClothes";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
-import Leaderboard from "../components/ui/dashboard/Leaderboard";
+import Leaderboard from "../pages/Leaderboard";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +28,14 @@ export const router = createBrowserRouter([
       {
         path: "/winter-clothes/:id",
         element: <SingleWinterClothes />,
+      },
+      {
+        path: "/leaderboard",
+        element: (
+          <ProtectedRoute>
+            <Leaderboard />
+          </ProtectedRoute>
+        ),
       },
       {
         path: "/sign-in",
@@ -58,10 +66,6 @@ export const router = createBrowserRouter([
       {
         path: "create-winter-clothes",
         element: <CreateWinterClothes />,
-      },
-      {
-        path: "leaderboard",
-        element: <Leaderboard />,
       },
     ],
   },
