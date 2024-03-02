@@ -17,28 +17,28 @@ export default function Navbar() {
     <div className="">
       <div className="topNavbar bg-[#191F2D] text-white py-4">
         <Container>
-          <nav className="flex items-center justify-between">
+          <nav className="flex items-center justify-center lg:justify-between flex-wrap mx-5 lg:mx-0">
             <div className="sclIcon flex items-center mx-auto lg:mx-0">
               <div className="flex items-center cursor-pointer">
-                <PhoneCall size={20} color="#fff" />
+                <PhoneCall size={18} color="#fff" />
                 <a
-                  className="text-md ml-2 text-white"
+                  className="text-md ml-1 text-white"
                   href="tel:+8801646418365"
                 >
                   +8801646418365
                 </a>
               </div>
-              <div className="flex items-center ml-5 text-white">
-                <Mail size={20} color="#fff" />
+              <div className="flex items-center ml-3 lg:ml-8 text-white">
+                <Mail size={18} color="#fff" />
                 <a
-                  className="text-md ml-2"
+                  className="text-md ml-1"
                   href="mailto:ahshan.habib026@gmail.com"
                 >
                   info@winterclothes.com
                 </a>
               </div>
             </div>
-            <div className=" flex items-center">
+            <div className=" flex items-center mt-3 lg:mt-0">
               <NavLink className="text-md text-white" to="/">
                 Terms & Condition
               </NavLink>
@@ -60,7 +60,7 @@ export default function Navbar() {
               <Link to="/" className="flex items-center ">
                 <img className=" size-10" src={logo} alt="" />
                 <span className="ml-2 text-xl font-semibold ">
-                  Winter Clothes Donation
+                  NH Donation
                 </span>
               </Link>
               {token ? (

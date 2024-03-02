@@ -5,6 +5,10 @@ import { useAppSelector } from "../../redux/hooks";
 import { useCureentUser } from "../../redux/features/auth/authSlice";
 import { NavLink } from "react-router-dom";
 
+interface IUser {
+  name?: string;
+}
+
 export default function DashboardMobileMenu() {
   const [opened, { open, close }] = useDisclosure(false);
   const user = useAppSelector(useCureentUser);
@@ -12,6 +16,7 @@ export default function DashboardMobileMenu() {
   return (
     <div className=" bg-[#191F2D] py-3 text-white px-8 lg:hidden md:block sm:block ">
       <Drawer
+        size="xs"
         opened={opened}
         onClose={close}
         withCloseButton={false}
@@ -69,7 +74,7 @@ export default function DashboardMobileMenu() {
           </Button>
         </div>
         <div>
-          <h1>Hello, {user?.name}!</h1>
+          <h1>Hello, {(user as IUser)?.name ?? "Guest"}!</h1>
         </div>
       </div>
     </div>

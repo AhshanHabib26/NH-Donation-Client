@@ -29,7 +29,7 @@ export default function WinterClothes() {
           <h1 className=" text-3xl lg:text-4xl font-semibold">
             Give People Emotional Warmth By Donate Clothes to Homeless.
           </h1>
-          <p className="text-lg font-light text-[#D53F34] mt-3 max-w-[90ch] mx-auto">
+          <p className="text-lg font-light text-[#D53F34] my-3 max-w-[90ch] mx-auto">
             Share warmth, and donate gently used winter clothing. Help those in
             need stay comfortable during the cold season. Make a difference by
             joining the best charity to donate clothes.
