@@ -3,6 +3,8 @@ import clothesOne from "../../assets/icons/clothes-1.png";
 import clothesTwo from "../../assets/icons/clothes-2.png";
 import clothesThree from "../../assets/icons/clothes-3.png";
 import { motion } from "framer-motion";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 const clothesData = [
   {
@@ -29,6 +31,8 @@ const clothesData = [
 ];
 
 export default function BannerDescription() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
     <div className="mt-20">
       <Container>
@@ -45,10 +49,14 @@ export default function BannerDescription() {
             <motion.div
               whileHover={{
                 scale: 1.056,
-                transition: { duration: .5 },
+                transition: { duration: 0.5 },
               }}
               key={cloth.id}
-              className=" shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant"
+              className={` ${
+                mode
+                  ? "shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant hover:text-[#191F2D]"
+                  : "shadow rounded-xl p-6 flex flex-col items-center justify-center cursor-pointer hover:myGradiant"
+              }`}
             >
               <img className=" size-20 rounded-lg" src={cloth.image} alt="" />
               <div className="text-center mt-5">

@@ -5,8 +5,11 @@ import { useGetAllClothesQuery } from "../../redux/features/clothe/clotheApi";
 import Loader from "../../lib/Loader";
 import { motion, useScroll } from "framer-motion";
 import { useRef } from "react";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 export default function WinterClothes() {
+  const mode = useAppSelector(useCureentThemeMode);
   const ContainerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ContainerRef,
@@ -41,7 +44,11 @@ export default function WinterClothes() {
         </motion.div>
         <div className="mt-14 flex items-center justify-center">
           <Link
-            className="bg-[#D53F34] p-3 border-dashed rounded-lg text-lg cursor-pointer text-white hover:bg-[#191F2D] hover:rounded-none"
+            className={` ${
+              mode
+                ? "bg-[#D53F34] p-3 border-dashed rounded-lg text-lg cursor-pointer text-white"
+                : "bg-[#D53F34] p-3 border-dashed rounded-lg text-lg cursor-pointer text-white hover:bg-[#191F2D] hover:rounded-none"
+            }`}
             to="/winter-clothes"
           >
             View All Clothes

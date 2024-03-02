@@ -6,7 +6,7 @@ export default function Loader() {
 
   return (
     <Container>
-      <div>
+      <div className="my-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
           {Counter.map((count, index) => (
             <div
