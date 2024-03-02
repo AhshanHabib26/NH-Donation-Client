@@ -4,6 +4,8 @@ import blogImgTwo from "../../assets/images/Gallary2.png";
 import blogImgThree from "../../assets/images/Gallary3.png";
 import { User, MessageCircle } from "lucide-react";
 import Styles from "../../styles/Blogs.module.css";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
+import { useAppSelector } from "../../redux/hooks";
 
 const blogData = [
   {
@@ -30,6 +32,8 @@ const blogData = [
 ];
 
 export default function Blogs() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
     <div className="mt-20">
       <Container>
@@ -43,7 +47,9 @@ export default function Blogs() {
               data-aos="fade-up"
               data-aos-duration="3000"
               key={blog.id}
-              className={`${Styles.blogContainer} border`}
+              className={`${Styles.blogContainer} ${
+                mode ? "border border-slate-800" : "border border-slate-200"
+              }`}
             >
               <img
                 className={`${Styles.blogImage} w-full h-[250px] object-cover opacity-85`}
@@ -55,10 +61,16 @@ export default function Blogs() {
                   {blog.title}
                 </h1>
                 <p
-                  className={`${Styles.blogDescripton} text-gray-600 text-md`}
+                  className={` ${
+                    mode ? " text-gray-400" : "text-gray-600"
+                  } text-md`}
                 >{`${blog.description.slice(0, 110)}...`}</p>
               </div>
-              <hr className=" border-gray-200 w-[80%] mx-auto my-2" />
+              <hr
+                className={`${
+                  mode ? "border-slate-700 border-dashed w-[80%] mx-auto my-2" : "border-gray-200 w-[80%] mx-auto my-2"
+                }`}
+              />
               <div className="p-3 flex items-center justify-between">
                 <div className="flex items-center">
                   <User
