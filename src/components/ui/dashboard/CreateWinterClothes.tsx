@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { useCreateClothesMutation } from "../../../redux/features/clothe/clotheApi";
 import toast from "react-hot-toast";
-
+import { useCureentThemeMode } from "../../../redux/features/theme/themeSlice";
+import { useAppSelector } from "../../../redux/hooks";
 
 export default function CreateWinterClothes() {
+  const mode = useAppSelector(useCureentThemeMode);
   const [createClothes] = useCreateClothesMutation();
-  
 
   const [clothes, setClothes] = useState({
     title: "",
@@ -51,8 +52,16 @@ export default function CreateWinterClothes() {
   };
 
   return (
-    <div className="my-8  max-w-3xl mx-auto p-8 shadow-2xl border border-slate-300 rounded-md">
-      <h1 className="text-center text-xl font-medium uppercase mb-4">
+    <div
+      className={`my-8  max-w-3xl mx-auto p-8 shadow-2xl border ${
+        mode ? "border-slate-700" : "border-slate-300"
+      } rounded-md`}
+    >
+      <h1
+        className={`text-center text-xl font-medium uppercase mb-4 ${
+          mode ? "text-white" : ""
+        }`}
+      >
         Create Winter Clothes Product
       </h1>
       <form onSubmit={handleSubmit}>
@@ -65,7 +74,9 @@ export default function CreateWinterClothes() {
             name="title"
             value={clothes.title}
             onChange={(e) => handleChange("title", e.target.value)}
-            className="w-full h-[50px] bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
+            className={`w-full h-[50px] bg-transparent border ${
+              mode ? "border-slate-700 text-gray-200" : "border-slate-300 text-[#191F2D]"
+            } rounded-md pl-3 outline-none`}
             placeholder="Clothes Title"
           />
         </div>
@@ -82,7 +93,9 @@ export default function CreateWinterClothes() {
               name="category"
               value={clothes.category}
               onChange={(e) => handleChange("category", e.target.value)}
-              className="w-full h-[50px] bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
+              className={`w-full h-[50px] bg-transparent border ${
+                mode ? "border-slate-700 text-gray-200" : "border-slate-300 text-[#191F2D]"
+              } rounded-md pl-3 outline-none`}
               type="text"
               placeholder="Category"
             />
@@ -99,7 +112,9 @@ export default function CreateWinterClothes() {
               name="image"
               value={clothes.image}
               onChange={(e) => handleChange("image", e.target.value)}
-              className="w-full h-[50px] bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
+              className={`w-full h-[50px] bg-transparent border ${
+                mode ? "border-slate-700 text-gray-200" : "border-slate-300 text-[#191F2D]"
+              } rounded-md pl-3 outline-none`}
               type="text"
               placeholder="Clothes Image "
             />
@@ -118,7 +133,9 @@ export default function CreateWinterClothes() {
                 placeholder="Clothes Size"
                 value={value}
                 onChange={(e) => handleSizeChange(index, e.target.value)}
-                className="w-full h-[50px] bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
+                className={`w-full h-[50px] bg-transparent border ${
+                  mode ? "border-slate-700 text-gray-200" : "border-slate-300 text-[#191F2D]"
+                } rounded-md pl-3 outline-none`}
               />
             ))}
           </div>
@@ -134,14 +151,18 @@ export default function CreateWinterClothes() {
             value={clothes.description}
             onChange={(e) => handleChange("description", e.target.value)}
             rows={4}
-            className="w-full  bg-transparent border border-slate-300 rounded-md pl-3 outline-none focus:border-slate-400"
+            className={`w-full h-[50px] bg-transparent border ${
+              mode ? "border-slate-700 text-gray-200" : "border-slate-300 text-[#191F2D]"
+            } rounded-md pl-3 outline-none`}
             required
             name="description"
             id=""
           ></textarea>
         </div>
         <input
-          className="px-4 py-3 bg-[#191F2D] text-white text-lg rounded-md cursor-pointer"
+          className={`px-4 py-3 ${
+            mode ? "bg-[#D53F34]" : "bg-[#191F2D]"
+          } text-white text-lg rounded-md cursor-pointer`}
           type="submit"
           value="Add Clothes"
         />

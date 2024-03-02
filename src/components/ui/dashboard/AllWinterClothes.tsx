@@ -67,7 +67,7 @@ export default function AllWinterClothes() {
   }
 
   const rows = data.data.map((item: TDataType) => (
-    <Table.Tr key={item._id}>
+    <Table.Tr className={`${ mode ? "border border-slate-700": "border border-slate-300"}`} key={item._id}>
       <Table.Td
         className={`max-w-md ${mode ? "text-white" : "text-[#191F2D]"}`}
       >
@@ -120,7 +120,7 @@ export default function AllWinterClothes() {
       <div className=" max-w-5xl mx-5 lg:mx-auto my-5 shadow">
         <Table>
           <Table.Thead>
-            <Table.Tr className="text-lg">
+            <Table.Tr className={`text-lg ${mode ? "border border-slate-700" : "border border-slate-300"}`}>
               <Table.Th
                 className={` ${mode ? "text-white" : "text-[#191F2D]"}`}
               >
