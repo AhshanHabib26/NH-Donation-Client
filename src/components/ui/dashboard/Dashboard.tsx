@@ -11,7 +11,7 @@ interface ITotalDonation {
 }
 
 export default function Dashboard() {
-  const mode = useAppSelector(useCureentThemeMode)
+  const mode = useAppSelector(useCureentThemeMode);
   const { data, isLoading } = useGetAllNewDataQuery("");
 
   if (isLoading) {
@@ -31,8 +31,7 @@ export default function Dashboard() {
 
   const totalTitles: string[] = data.result.map((t: any) => t.title);
   const countByTitle: { [key: string]: number } = totalTitles.reduce(
-    (acc, curr) => {
-      // @ts-ignore
+    (acc: { [key: string]: number }, curr: string) => {
       acc[curr] = (acc[curr] || 0) + 1;
       return acc;
     },
@@ -50,9 +49,8 @@ export default function Dashboard() {
 
   const totalCategory: string[] = data.result.map((t: any) => t.category);
   const countByCategory: { [key: string]: number } = totalCategory.reduce(
-    (acc, curr) => {
-      // @ts-ignore
-      acc[curr]= (acc[curr] || 0) + 1;
+    (acc: { [key: string]: number }, curr: string) => {
+      acc[curr] = (acc[curr] || 0) + 1;
       return acc;
     },
     {}
@@ -63,13 +61,15 @@ export default function Dashboard() {
     value: countByCategory[category],
   }));
 
-
-
   /***********  Total Donation Product Count By Category ****************/
 
   return (
     <div>
-      <h1 className={`text-xl font-semibold ${ mode? "text-[#fff]" : "text-[#191F2D]"} mb-5`}>
+      <h1
+        className={`text-xl font-semibold ${
+          mode ? "text-[#fff]" : "text-[#191F2D]"
+        } mb-5`}
+      >
         Winter Clothes Data Info
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mx-auto">

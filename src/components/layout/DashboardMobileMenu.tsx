@@ -1,6 +1,13 @@
 import { useDisclosure } from "@mantine/hooks";
 import { Drawer, Button } from "@mantine/core";
-import { Database, Home, LayoutDashboard, Menu, SquarePen } from "lucide-react";
+import {
+  Database,
+  Home,
+  LayoutDashboard,
+  Menu,
+  SquarePen,
+  TrendingUp,
+} from "lucide-react";
 import { useAppSelector } from "../../redux/hooks";
 import { useCureentUser } from "../../redux/features/auth/authSlice";
 import { NavLink } from "react-router-dom";
@@ -42,6 +49,14 @@ export default function DashboardMobileMenu() {
             <Database size={18} />
             <NavLink className="text-md ml-1" to="/dashboard/winter-clothes">
               Winter Clothes
+            </NavLink>
+          </div>
+          <div
+            className={`flex items-center p-2 text-white shadow rounded-lg mt-3`}
+          >
+            <TrendingUp size={18} />
+            <NavLink className="text-md ml-1" to="/dashboard/leaderboard">
+              Top Donors
             </NavLink>
           </div>
           <div

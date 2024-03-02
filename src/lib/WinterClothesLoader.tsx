@@ -22,7 +22,6 @@ export default function WinterClothesLoader() {
           <h1 className="bg-gradient-to-l from-[#d3d3d1] to-[#cde2e1] p-5 rounded-md flex-wrap"></h1>
         </div>
       </div>
-      // @ts-ignore
       {Counter.map((count, index) => (
         <div
           key={index}

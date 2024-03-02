@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import { Database, Home, LayoutDashboard, SquarePen } from "lucide-react";
+import { Database, Home, LayoutDashboard, SquarePen, TrendingUp } from "lucide-react";
 import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 import { useAppSelector } from "../../redux/hooks";
 
@@ -31,6 +31,16 @@ export default function Sidebar() {
           <Database size={18} />
           <NavLink className="text-md ml-1" to="/dashboard/winter-clothes">
             Winter Clothes
+          </NavLink>
+        </div>
+        <div
+          className={`flex items-center p-2  shadow ${
+            mode ? "text-[#fff]" : "text-[#191F2D]"
+          }  rounded-lg mt-3`}
+        >
+          <TrendingUp size={18} />
+          <NavLink className="text-md ml-1" to="/dashboard/leaderboard">
+            Top Donors
           </NavLink>
         </div>
         <div
