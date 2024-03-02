@@ -5,7 +5,8 @@ import "swiper/css";
 import { SwiperSlide } from "swiper/react";
 import { Clock, MapPin } from "lucide-react";
 import { Autoplay } from "swiper/modules";
-
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 const eventsData = [
   {
@@ -56,9 +57,17 @@ const eventsData = [
 ];
 
 export default function Events() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
     <div className="mt-20">
-      <div className="bg-gradient-to-r from-[#EDECDA] to-[#cdebea] py-8">
+      <div
+        className={`${
+          mode
+            ? "bg-gradient-to-r from-[#414141] to-[#182727] py-8"
+            : "bg-gradient-to-r from-[#EDECDA] to-[#cdebea] py-8"
+        }`}
+      >
         <Container>
           <div className="text-center mb-6">
             <p className="text-lg font-light text-[#D53F34]">

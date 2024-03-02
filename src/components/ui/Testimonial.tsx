@@ -7,6 +7,8 @@ import "swiper/css";
 import { SwiperSlide } from "swiper/react";
 import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 const TestimonialData = [
   {
@@ -54,11 +56,13 @@ const TestimonialData = [
 ];
 
 export default function Testimonial() {
+  const mode = useAppSelector(useCureentThemeMode);
+
   return (
     <div className="mt-20">
-      <div className={`${Styles.TBG} p-4`}>
+      <div className={`${mode ? `bg-gradient-to-r from-[#414141] to-[#182727] p-4` : `${Styles.TBG} p-4`}`}>
         <Container>
-          <div className="text-center mb-6">
+          <div className="text-center mb-4">
             <p className="text-lg font-light text-[#D53F34]">Testimonials</p>
             <h1 className="text-4xl font-semibold">What people say about us</h1>
           </div>
