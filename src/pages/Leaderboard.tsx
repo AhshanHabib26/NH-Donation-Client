@@ -2,8 +2,8 @@ import { Table } from "@mantine/core";
 import { useGetAllNewDataQuery } from "../redux/features/newClothe/newClotheApi";
 import { useAppSelector } from "../redux/hooks";
 import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
-import Loader from "../lib/Loader";
 import { Crown } from "lucide-react";
+import TopDonorLoader from "../lib/TopDonorLoader";
 
 interface IUserData {
   name: string;
@@ -36,7 +36,7 @@ export default function Leaderboard() {
   const { data, isLoading } = useGetAllNewDataQuery("");
 
   if (isLoading) {
-    return <Loader />;
+    return <TopDonorLoader />;
   }
 
   const userData = countUserData(data?.result || []);
@@ -84,9 +84,18 @@ export default function Leaderboard() {
                 key={index}
               >
                 <Table.Td
-                  className={`${mode ? "text-white" : "text-[#191F2D]"} flex items-center`}
+                  className={`${
+                    mode ? "text-white" : "text-[#191F2D]"
+                  } flex items-center`}
                 >
-                  {name} {isTopDonor && <Crown size={18} color={`${mode ? "#D53F34" : "#191F2D"}`} className="ml-2" />}
+                  {name}{" "}
+                  {isTopDonor && (
+                    <Crown
+                      size={18}
+                      color={`${mode ? "#D53F34" : "#191F2D"}`}
+                      className="ml-2"
+                    />
+                  )}
                 </Table.Td>
                 <Table.Td
                   className={` ${mode ? "text-white" : "text-[#191F2D]"}`}

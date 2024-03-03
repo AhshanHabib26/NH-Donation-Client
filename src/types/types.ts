@@ -27,7 +27,6 @@ export type TSignUpInputs = {
   password: string;
 };
 
-
 export type TDataType = {
   _id: string;
   title: string;
@@ -35,4 +34,11 @@ export type TDataType = {
   category: string;
   size: string[];
   description: string;
+};
+
+export type TVolunteer = {
+  id: number;
+  name: string;
+  title: string;
+  avatar: string;
 };

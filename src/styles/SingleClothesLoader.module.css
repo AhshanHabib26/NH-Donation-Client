@@ -1,0 +1,9 @@
+.SingleClothesloaderContainer {
+    animation: myAnimation 1s ease infinite alternate;
+  }
+  
+  @keyframes myAnimation {
+    to {
+      opacity: 0.5;
+    }
+  }

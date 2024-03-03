@@ -1,7 +1,6 @@
 import BackgroundImage from "../utils/BackgroundImage";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetSingleClothesQuery } from "../redux/features/clothe/clotheApi";
-import Loader from "../lib/Loader";
 import { useAppSelector } from "../redux/hooks";
 import {
   useCureentToken,
@@ -9,6 +8,7 @@ import {
 } from "../redux/features/auth/authSlice";
 import { useCreateNewDataMutation } from "../redux/features/newClothe/newClotheApi";
 import Swal from "sweetalert2";
+import SingleClothesLoader from "../lib/SingleClothesLoader";
 export default function SingleWinterClothes() {
   const sizeBGColors = [
     "bg-blue-200",
@@ -24,7 +24,7 @@ export default function SingleWinterClothes() {
   const { data, isLoading } = useGetSingleClothesQuery(id);
 
   if (isLoading) {
-    return <Loader />;
+    return <SingleClothesLoader />;
   }
 
   type TNewUserData = {

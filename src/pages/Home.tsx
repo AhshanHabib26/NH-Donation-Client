@@ -8,6 +8,7 @@ import Volunteers from "../components/ui/Volunteers";
 import WhatWeDo from "../components/ui/WhatWeDo";
 import WinterClothes from "../components/ui/WinterClothes";
 
+
 export default function Home() {
   return (
     <div>

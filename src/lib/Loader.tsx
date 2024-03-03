@@ -1,6 +1,5 @@
 import Container from "../utils/Container";
 import Styles from "../styles/Loader.module.css";
-/* eslint-disable no-unused-vars */
 export default function Loader() {
   const Counter = ["", "", "", "", "", ""];
 

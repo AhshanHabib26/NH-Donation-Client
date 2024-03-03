@@ -8,6 +8,7 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { useAppSelector } from "../../redux/hooks";
 import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 import { useGetAllTestimonialQuery } from "../../redux/features/testimonial/testimonialApi";
+import TestimonialLoader from "../../lib/TestimonialLoader";
 
 type TTestimonialData = {
   _id: string;
@@ -21,7 +22,7 @@ export default function Testimonial() {
   const { data, isLoading } = useGetAllTestimonialQuery("");
 
   if (isLoading) {
-    return <h1>Loading</h1>;
+    return <TestimonialLoader />;
   }
 
   return (
