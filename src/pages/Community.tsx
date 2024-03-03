@@ -1,5 +1,4 @@
 import { HeartHandshake, Info } from "lucide-react";
-import BackgroundImage from "../utils/BackgroundImage";
 import { Link } from "react-router-dom";
 import CommunityTabs from "../components/ui/CommunityTabs";
 import CommunityInput from "../components/ui/CommunityInput";
