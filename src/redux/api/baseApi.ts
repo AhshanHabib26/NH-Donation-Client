@@ -6,5 +6,5 @@ export const baseApi = createApi({
     baseUrl: "https://winter-management-backend.vercel.app/api",
   }),
   endpoints: () => ({}),
-  tagTypes: ["Clothes", "newClotheData"],
+  tagTypes: ["Clothes", "newClotheData", "Testimonial"],
 });

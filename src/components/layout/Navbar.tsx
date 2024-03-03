@@ -72,7 +72,7 @@ export default function Navbar() {
                   <NavLink className="text-md mr-2" to="/community">
                     Community
                   </NavLink>
-                  <NavLink className="text-md mx-3" to="/dashboard">
+                  <NavLink className="text-md mr-2" to="/dashboard">
                     Dashboard
                   </NavLink>
                   <button

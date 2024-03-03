@@ -12,6 +12,7 @@ import CreateWinterClothes from "../components/ui/dashboard/CreateWinterClothes"
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import Leaderboard from "../pages/Leaderboard";
 import Community from "../pages/Community";
+import CreateTestimonial from "../components/ui/dashboard/CreateTestimonial";
 
 export const router = createBrowserRouter([
   {
@@ -67,6 +68,10 @@ export const router = createBrowserRouter([
       {
         path: "create-winter-clothes",
         element: <CreateWinterClothes />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },
