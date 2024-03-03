@@ -53,7 +53,7 @@ export default function Navbar() {
         </Container>
       </div>
       <hr className=" w-full border-slate-700" />
-      <div className="mainNavbar py-4 shadow-lg">
+      <div className="mainNavbar py-4 shadow">
         <Container>
           <nav>
             <div className="flex items-center justify-center flex-wrap lg:justify-between">

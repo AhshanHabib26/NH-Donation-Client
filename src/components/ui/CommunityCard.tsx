@@ -34,7 +34,7 @@ export default function CommunityCard() {
   return (
     <div className="mt-8">
       {userData.map((item) => (
-        <div className="border  shadow-lg rounded-lg p-4 mb-10">
+        <div key={item.id} className="border  shadow-lg rounded-lg p-4 mb-10">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
               <img
