@@ -9,13 +9,14 @@ import { useAppSelector } from "../redux/hooks";
 import { useCureentUser } from "../redux/features/auth/authSlice";
 
 
+
 interface IUser {
   name?: string;
 }
 
 export default function Community() {
   const user = useAppSelector(useCureentUser);
-
+ 
 
   return (
     <div>

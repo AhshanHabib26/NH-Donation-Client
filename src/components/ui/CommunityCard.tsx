@@ -1,6 +1,8 @@
 import { GripHorizontal } from "lucide-react";
 import myAvatar from "../../assets/images/Avatar.png";
 import myImage from "../../assets/images/myImg.jpg";
+import CommunityCommentsInput from "./CommunityCommentsInput";
+import { useState } from "react";
 
 const userData = [
   {
@@ -30,7 +32,20 @@ const userData = [
   },
 ];
 
+interface ICommentBoxState {
+  [postId: number]: boolean;
+}
+
 export default function CommunityCard() {
+  const [commentBoxOpen, setCommentBoxOpen] = useState<ICommentBoxState>({});
+
+  const toggleCommentBox = (postId: number) => {
+    setCommentBoxOpen((prevState) => ({
+      ...prevState,
+      [postId]: !prevState[postId],
+    }));
+  };
+
   return (
     <div className="mt-8">
       {userData.map((item) => (
@@ -58,8 +73,11 @@ export default function CommunityCard() {
             <p className="text-md text-gray-600">{item.feedback}</p>
           </div>
           <div className=" flex items-center justify-between">
-            <button className="border border-gray-200 px-6 w-full py-2 rounded-full cursor-pointer text-md text-gray-700 shadow">
-              Comments
+            <button
+              onClick={() => toggleCommentBox(item.id)}
+              className="border border-gray-200 px-6 w-full py-2 rounded-full cursor-pointer text-md text-gray-700 shadow"
+            >
+             {commentBoxOpen[item.id] ? 'Hide' : 'Comments'}
             </button>
             <button className="border border-gray-200 px-6 w-full py-2 rounded-full cursor-pointer mx-5 text-md text-gray-700 shadow">
               Follow
@@ -68,6 +86,7 @@ export default function CommunityCard() {
               Share
             </button>
           </div>
+          <div> {commentBoxOpen[item.id] && <CommunityCommentsInput />}</div>
         </div>
       ))}
     </div>
