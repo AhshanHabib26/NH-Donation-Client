@@ -66,10 +66,13 @@ export default function Navbar() {
                   <NavLink className="text-md" to="/winter-clothes">
                     All Winter Clothes
                   </NavLink>
-                  <NavLink className="text-md mx-3" to="/leaderboard">
+                  <NavLink className="text-md mx-2" to="/leaderboard">
                     Top Donors
                   </NavLink>
-                  <NavLink className="text-md mr-3" to="/dashboard">
+                  <NavLink className="text-md mr-2" to="/community">
+                    Community
+                  </NavLink>
+                  <NavLink className="text-md mx-3" to="/dashboard">
                     Dashboard
                   </NavLink>
                   <button
@@ -84,8 +87,14 @@ export default function Navbar() {
                   <NavLink className="text-md" to="/winter-clothes">
                     All Winter Clothes
                   </NavLink>
+                  <NavLink className="text-md mx-2" to="/leaderboard">
+                    Top Donors
+                  </NavLink>
+                  <NavLink className="text-md mr-2" to="/community">
+                    Community
+                  </NavLink>
                   <NavLink
-                    className="text-md ml-4 border p-3 bg-[#191F2D] text-white rounded-lg"
+                    className="text-md border p-3 bg-[#191F2D] text-white rounded-lg"
                     to="/sign-in"
                   >
                     Register

@@ -11,6 +11,7 @@ import AllWinterClothes from "../components/ui/dashboard/AllWinterClothes";
 import CreateWinterClothes from "../components/ui/dashboard/CreateWinterClothes";
 import ProtectedRoute from "../components/layout/ProtectedRoute";
 import Leaderboard from "../pages/Leaderboard";
+import Community from "../pages/Community";
 
 export const router = createBrowserRouter([
   {
@@ -31,11 +32,11 @@ export const router = createBrowserRouter([
       },
       {
         path: "/leaderboard",
-        element: (
-          <ProtectedRoute>
-            <Leaderboard />
-          </ProtectedRoute>
-        ),
+        element: <Leaderboard />,
+      },
+      {
+        path: "/community",
+        element: <Community />,
       },
       {
         path: "/sign-in",
