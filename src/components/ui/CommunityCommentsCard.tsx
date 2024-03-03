@@ -1,5 +1,7 @@
 import myImage from "../../assets/images/myImg.jpg";
 import myAvatar from "../../assets/images/Avatar.png";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 const myCmData = [
   {
@@ -19,10 +21,11 @@ const myCmData = [
 ];
 
 export default function CommunityCommentsCard() {
+  const mode = useAppSelector(useCureentThemeMode)
   return (
     <div className="px-2">
       <div className="flex items-center">
-        <h1 className="text-lg font-semibold text-gray-700">Comments</h1>
+        <h1 className={`text-lg font-semibold ${ mode ? "text-gray-400" : "text-gray-700"}`}>Comments</h1>
         <p className="ml-1 text-lg text-gray-500 font-semibold">({myCmData.length})</p>
       </div>
       {myCmData.map((comment) => (
@@ -33,12 +36,12 @@ export default function CommunityCommentsCard() {
               src={comment.image}
               alt=""
             />
-            <h1 className="text-lg ml-1 font-semibold text-gray-700">
+            <h1 className={`text-lg ml-2 font-semibold ${ mode ? "text-gray-300" : "text-gray-700"}`}>
               {comment.userName}
             </h1>
           </div>
           <div className="ml-8">
-            <p className=" text-sm bg-gray-100 p-2 rounded-lg">
+            <p className={`text-sm ${ mode ? "bg-gray-700" : "bg-gray-100"} p-2 rounded-lg`}>
               {comment.userComment}
             </p>
             <div className="flex items-center justify-between">

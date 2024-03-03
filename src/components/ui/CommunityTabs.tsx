@@ -1,7 +1,12 @@
 import { Tabs } from "@mantine/core";
 import myImage from "../../assets/images/myImg.jpg";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 export default function CommunityTabs() {
+
+  const mode = useAppSelector(useCureentThemeMode)
+
   return (
     <div>
       <Tabs defaultValue="first">
@@ -24,7 +29,7 @@ export default function CommunityTabs() {
                 src={myImage}
                 alt=""
               />
-              <h1 className="text-lg ml-3 text-gray-700">Ahshan Habib</h1>
+              <h1 className={`text-lg ml-3 ${mode ? "text-gray-400" : "text-gray-700"}`}>Ahshan Habib</h1>
             </div>
             <div>
               <p>100</p>
