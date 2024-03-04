@@ -8,7 +8,7 @@ import { useAppSelector } from "../redux/hooks";
 
 export default function Signup() {
   const mode = useAppSelector(useCureentThemeMode);
-  const [registerUser] = useRegisterUserMutation();
+  const [registerUser, { isLoading }] = useRegisterUserMutation();
   const navigate = useNavigate();
 
   const {
@@ -90,7 +90,7 @@ export default function Signup() {
               mode ? "bg-[#D53F34]" : "bg-[#191F2D]"
             } w-[120px] h-[50px] text-white text-lg rounded-sm cursor-pointer`}
             type="submit"
-            value="Sign up"
+            value={`${isLoading ? "loading..." : "Sign up"}`}
           />
           <p className="text-md mt-3  text-center font-medium">
             Already have an account?

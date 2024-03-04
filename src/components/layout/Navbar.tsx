@@ -93,13 +93,13 @@ export default function Navbar() {
               <div className="hidden lg:block">
                 {token ? (
                   <div className="pt-4 lg:pt-0">
-                    <NavLink className="text-md" to="/winter-clothes">
+                    <NavLink className="text-md mr-2" to="/winter-clothes">
                       All Winter Clothes
                     </NavLink>
-                    <NavLink className="text-md mx-2" to="/leaderboard">
+                    <NavLink className="text-md mr-2" to="/leaderboard">
                       Top Donors
                     </NavLink>
-                    <NavLink className="text-md mx-2" to="/about-us">
+                    <NavLink className="text-md mr-2" to="/about-us">
                       About Us
                     </NavLink>
                     <NavLink className="text-md mr-2" to="/community">
@@ -117,13 +117,13 @@ export default function Navbar() {
                   </div>
                 ) : (
                   <div className="pt-4 lg:pt-0">
-                    <NavLink className="text-md" to="/winter-clothes">
+                    <NavLink className="text-md mr-2" to="/winter-clothes">
                       All Winter Clothes
                     </NavLink>
-                    <NavLink className="text-md mx-2" to="/leaderboard">
+                    <NavLink className="text-md mr-2" to="/leaderboard">
                       Top Donors
                     </NavLink>
-                    <NavLink className="text-md mx-2" to="/about-us">
+                    <NavLink className="text-md mr-2" to="/about-us">
                       About Us
                     </NavLink>
                     <NavLink className="text-md mr-2" to="/community">

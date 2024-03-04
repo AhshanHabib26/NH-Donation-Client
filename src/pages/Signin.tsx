@@ -8,11 +8,12 @@ import { setUser } from "../redux/features/auth/authSlice";
 import { verifyToken } from "../utils/VerifyToken";
 import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
 
+
 export default function Signin() {
   const mode = useAppSelector(useCureentThemeMode);
 
   const navigate = useNavigate();
-  const [loginUser] = useLoginUserMutation();
+  const [loginUser, { isLoading }] = useLoginUserMutation();
   const dispatch = useAppDispatch();
 
   const {
@@ -88,7 +89,7 @@ export default function Signin() {
               mode ? "bg-[#D53F34]" : "bg-[#191F2D]"
             } w-[120px] h-[50px] text-white text-lg rounded-sm cursor-pointer`}
             type="submit"
-            value="Sign in"
+            value={` ${isLoading ? "loading..." : "Sign in"}`}
           />
           <p className="text-md mt-3  text-center font-medium">
             Don't have an account?

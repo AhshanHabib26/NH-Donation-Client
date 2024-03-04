@@ -1,4 +1,4 @@
-import BackgroundImage from "../utils/BackgroundImage";
+import Styles from "../styles/BackgroundImage.module.css";
 import { useNavigate, useParams } from "react-router-dom";
 import { useGetSingleClothesQuery } from "../redux/features/clothe/clotheApi";
 import { useAppSelector } from "../redux/hooks";
@@ -9,6 +9,7 @@ import {
 import { useCreateNewDataMutation } from "../redux/features/newClothe/newClotheApi";
 import Swal from "sweetalert2";
 import SingleClothesLoader from "../lib/SingleClothesLoader";
+import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
 export default function SingleWinterClothes() {
   const sizeBGColors = [
     "bg-blue-200",
@@ -16,7 +17,15 @@ export default function SingleWinterClothes() {
     "bg-green-200",
     "bg-orange-200",
   ];
+
+  const sizeBGColorsDarkMode = [
+    "bg-blue-400",
+    "bg-red-400",
+    "bg-green-400",
+    "bg-orange-400",
+  ];
   const { id } = useParams();
+  const mode = useAppSelector(useCureentThemeMode);
   const token = useAppSelector(useCureentToken);
   const user = useAppSelector(useCureentUser);
   const navigate = useNavigate();
@@ -77,13 +86,17 @@ export default function SingleWinterClothes() {
 
   return (
     <div>
-      <BackgroundImage>
-        <div className="mx-auto text-center w-3/4 text-xl">
-          <h1 className=" bg-[#191F2D] text-white rounded-lg p-2 ">
+      <div className={`${mode ? "py-5" : `${Styles.bgImage} py-14`}`}>
+        <div className="mx-auto text-center max-w-4xl text-xl">
+          <h1
+            className={`${
+              mode ? "bg-[#D53F34]" : "bg-[#191F2D]"
+            } text-white rounded-lg p-2`}
+          >
             {data?.data?.title}
           </h1>
         </div>
-      </BackgroundImage>
+      </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 max-w-6xl mx-5 lg:mx-auto mt-5">
         <div className="flex items-center justify-center">
           <img
@@ -105,8 +118,14 @@ export default function SingleWinterClothes() {
             <h1 className="text-lg  font-medium">Available Size: </h1>
             {data?.data?.size.map((item: string, index: number) => (
               <p
-                className={`border ml-2 px-2 py-1 rounded-md cursor-pointer text-md  ${
-                  sizeBGColors[index % sizeBGColors.length]
+                className={` ml-2 px-2 py-1 rounded-md cursor-pointer text-md ${
+                  mode
+                    ? ` ${
+                        sizeBGColorsDarkMode[
+                          index % sizeBGColorsDarkMode.length
+                        ]
+                      }`
+                    : ` ${sizeBGColors[index % sizeBGColors.length]}`
                 }`}
                 key={index}
               >
