@@ -1,6 +1,6 @@
 ### Project Details
 
-- Project Name: Winter Clothes Management Full Stack Project
+- Project Name: NH Donation (Winter Clothes Management Full Stack Project)
 - Project Technology:
   - Frontend: React, TypeScript, Redux, RTK Query, Tailwind, Animation (Framer Motion, AOS).
   - Backend: Express, MongoDB, Mongoose, TypeScript.
@@ -16,12 +16,16 @@
     - Admin Info
     - Terms & Conditions
     - Privacy Policy
-    - Donate Now
+    - Dark & Light Theme Icon
   - Main Menu
     - Brand Logo
     - All Winter Clothes
-    - Dashboard (For Login User)
+    - Top Donors
+    - About Us
+    - Community
     - Register
+    - Dashboard (For Login User)
+    - Logout (For Login User)
 
 - Home Page Section:
   - Navbar
@@ -35,5 +39,13 @@
   - Events
   - Blog
   - Footer
+
+* Dashboard Section (Only Login User)
+  - Dashboard
+  - All Winter Clothes
+  - Create Clothes
+  - Create Testimonial
+  - Back To Home
+  
 
 ### This Website Totally User Friendly and Fully Responsive, Please review this awesome projects and feel free and give your opinion Or any suggestions. Really, it's my pleasure.
