@@ -28,7 +28,7 @@ export const store = configureStore({
     auth: persistedAuthReducer,
     themeMode: persistedThemeReducer,
   },
-  devTools: true,
+  devTools: false,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {

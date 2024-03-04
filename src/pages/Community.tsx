@@ -5,7 +5,10 @@ import CommunityInput from "../components/ui/CommunityInput";
 import { Tooltip } from "@mantine/core";
 import CommunityCard from "../components/ui/CommunityCard";
 import { useAppSelector } from "../redux/hooks";
-import { useCureentUser } from "../redux/features/auth/authSlice";
+import {
+  useCureentToken,
+  useCureentUser,
+} from "../redux/features/auth/authSlice";
 import Styles from "../styles/BackgroundImage.module.css";
 import { useCureentThemeMode } from "../redux/features/theme/themeSlice";
 
@@ -16,6 +19,7 @@ interface IUser {
 export default function Community() {
   const user = useAppSelector(useCureentUser);
   const mode = useAppSelector(useCureentThemeMode);
+  const token = useAppSelector(useCureentToken);
 
   return (
     <div>
@@ -62,27 +66,34 @@ export default function Community() {
               Community Connect, share, and engage with community and build
               relationships.
             </h1>
-            <p className=" text-md text-red-400 italic">
-              {" "}
-              Please log in if you are already a member or sign up for an
-              account.
-            </p>
-            <div className="flex items-center justify-center lg:justify-between flex-col lg:flex-row mt-3 ">
-              <Link
-                className={`${
-                  mode ? "bg-[#2c64e9]" : "bg-[#191F2D]"
-                } text-white px-8 py-3 text-md rounded-lg cursor-pointer`}
-                to="/sign-up"
-              >
-                Join Our Community
-              </Link>
-              <Link
-                className=" bg-[#D53F34] text-white px-8 py-3 mt-3 lg:mt-0 text-md rounded-lg cursor-pointer"
-                to="/sign-in"
-              >
-                Already a Member?
-              </Link>
-            </div>
+            {token ? (
+              ""
+            ) : (
+              <>
+                {" "}
+                <p className=" text-md text-red-400 italic">
+                  {" "}
+                  Please log in if you are already a member or sign up for an
+                  account.
+                </p>
+                <div className="flex items-center justify-center lg:justify-between flex-col lg:flex-row mt-3 ">
+                  <Link
+                    className={`${
+                      mode ? "bg-[#2c64e9]" : "bg-[#191F2D]"
+                    } text-white px-8 py-3 text-md rounded-lg cursor-pointer`}
+                    to="/sign-up"
+                  >
+                    Join Our Community
+                  </Link>
+                  <Link
+                    className=" bg-[#D53F34] text-white px-8 py-3 mt-3 lg:mt-0 text-md rounded-lg cursor-pointer"
+                    to="/sign-in"
+                  >
+                    Already a Member?
+                  </Link>
+                </div>
+              </>
+            )}
           </div>
           <div
             className={`mt-8 border ${
