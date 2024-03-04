@@ -14,6 +14,7 @@ import Leaderboard from "../pages/Leaderboard";
 import Community from "../pages/Community";
 import CreateTestimonial from "../components/ui/dashboard/CreateTestimonial";
 import AboutUs from "../pages/AboutUs";
+import NotFound from "../pages/NotFound";
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +52,10 @@ export const router = createBrowserRouter([
       {
         path: "/sign-up",
         element: <Signup />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
       },
     ],
   },
