@@ -1,0 +1,7 @@
+.AboutUsBanner {
+  background-image: url(../assets/images/AboutUsBanner.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}

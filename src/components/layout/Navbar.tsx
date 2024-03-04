@@ -69,6 +69,9 @@ export default function Navbar() {
                   <NavLink className="text-md mx-2" to="/leaderboard">
                     Top Donors
                   </NavLink>
+                  <NavLink className="text-md mx-2" to="/about-us">
+                    About Us
+                  </NavLink>
                   <NavLink className="text-md mr-2" to="/community">
                     Community
                   </NavLink>
@@ -89,6 +92,9 @@ export default function Navbar() {
                   </NavLink>
                   <NavLink className="text-md mx-2" to="/leaderboard">
                     Top Donors
+                  </NavLink>
+                  <NavLink className="text-md mx-2" to="/about-us">
+                    About Us
                   </NavLink>
                   <NavLink className="text-md mr-2" to="/community">
                     Community
