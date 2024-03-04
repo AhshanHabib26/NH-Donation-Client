@@ -1,5 +1,8 @@
 import Styles from "../../styles/Volunteers.module.css";
 import { Info } from "lucide-react";
+import { Tooltip } from "@mantine/core";
+import { useAppSelector } from "../../redux/hooks";
+import { useCureentThemeMode } from "../../redux/features/theme/themeSlice";
 
 interface IVolunteer {
   id: number;
@@ -13,6 +16,7 @@ interface IVolunteerCardProps {
 }
 
 const VolunteerCard: React.FC<IVolunteerCardProps> = ({ volunteer }) => {
+  const mode = useAppSelector(useCureentThemeMode);
   return (
     <div>
       <div key={volunteer.id} className={`${Styles.volunterMain} relative`}>
@@ -21,7 +25,17 @@ const VolunteerCard: React.FC<IVolunteerCardProps> = ({ volunteer }) => {
           src={volunteer.avatar}
           alt=""
         />
-        <Info className={Styles.infoIcon} size={25} />
+        <Tooltip
+          color={`${mode ? "#2C64E9" : "#191F2D"}`}
+          multiline
+          w={140}
+          withArrow
+          position="left"
+          transitionProps={{ transition: "skew-up", duration: 400 }}
+          label="Info is Cooking!!"
+        >
+          <Info className={`${Styles.infoIcon} cursor-pointer`} size={25} />
+        </Tooltip>
 
         <div
           className={`${Styles.volunterInfo} absolute bottom-0 left-0 bg-[#191F2D] px-4 py-2 rounded-tr-xl`}
