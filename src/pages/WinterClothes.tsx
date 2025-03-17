@@ -25,8 +25,8 @@ export default function WinterClothes() {
       <div className="my-12">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {data.data.map((winter: any) => (
-              <WinterCard key={winter.id} winter={winter} />
+            {data?.data?.map((winter: any) => (
+              <WinterCard key={winter?.id} winter={winter} />
             ))}
           </div>
         </Container>

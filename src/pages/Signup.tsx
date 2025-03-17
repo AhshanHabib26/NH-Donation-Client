@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Link, useNavigate } from "react-router-dom";
 import { TSignUpInputs } from "../types/types";
 import { useForm, SubmitHandler } from "react-hook-form";

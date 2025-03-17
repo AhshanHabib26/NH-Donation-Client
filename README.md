@@ -48,4 +48,11 @@
   - Back To Home
   
 
-### This Website Totally User Friendly and Fully Responsive, Please review this awesome projects and feel free and give your opinion Or any suggestions. Really, it's my pleasure.
+#### This Website Totally User Friendly and Fully Responsive, Please review this awesome projects and feel free and give your opinion Or any suggestions. Really, it's my pleasure.
+
+
+### Note
+  * If you want to design a website or need any website-related service, feel free to ask me.
+    * [WhatsApp](https://wa.me/1646418365)
+    * [Email](ahshan.habib026@gmail.com)
+

@@ -37,8 +37,8 @@ export default function WinterClothes() {
         </div>
         <motion.div ref={ContainerRef} style={{ scale: scrollYProgress }}>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {data.data.slice(0, 6).map((winter: any) => (
-              <WinterCard winter={winter} key={winter._id} />
+            {data?.data?.slice(0, 6).map((winter: any) => (
+              <WinterCard winter={winter} key={winter?._id} />
             ))}
           </div>
         </motion.div>
